@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>EveryRiver — Coming soon</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="EveryRiver is building an open, map-driven way to explore rivers, canals, and wetlands — photos, data, stories, and more.">
+  <style>
+    body { font-family: system-ui, sans-serif; display:flex; justify-content:center; align-items:center; height:100vh; background:#f4fafa; color:#0c2a2f; text-align:center; margin:0; }
+    main { max-width:600px; }
+    h1 { font-size:2rem; }
+    a { color:#1aa3b3; text-decoration:none; margin:0 .4rem; }
+    footer { margin-top:1rem; font-size:.9rem; color:#556; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>EveryRiver</h1>
+    <p>We’re building an open, interactive atlas of rivers, canals, and wetlands.<br>The full site is in development.</p>
+    <p>
+      <a href="https://www.flickr.com/photos/...">Flickr</a> |
+      <a href="https://www.youtube.com/@EveryRiver">YouTube</a> |
+      <a href="mailto:hello@every-river.org">Email</a>
+    </p>
+    <footer>© <span id="y"></span> EveryRiver</footer>
+    <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  </main>
+</body>
+</html>
