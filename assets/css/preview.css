@@ -29,12 +29,12 @@ h1{font-size:var(--fs-extra-large);margin:.5rem 0}
 .lede{font-size:var(--fs-large);margin:.5rem 0 1rem;color:var(--muted)}
 /* Hero background for pages that need it (home) */
 .hero-bg{
-  /* Drop your image at /assets/images/raster/hero.jpg */
-  /* Fallback to boat logo if hero.jpg is missing */
+  /* Paths are relative to this CSS file in /assets/css/ */
+  /* 1) hero image  2) fallback logo */
   background-image:
     linear-gradient(rgba(11,26,47,.6), rgba(11,26,47,.6)),
-    url('/assets/images/raster/hero.jpg'),
-    url('/assets/images/svg/boat_logo1%20(2).png');
+    url('../images/raster/hero.jpg'),
+    url('../images/svg/boat_logo1%20(2).png');
   background-size: cover, cover, 420px auto;
   background-position: center, center, center;
   background-repeat: no-repeat, no-repeat, no-repeat;
