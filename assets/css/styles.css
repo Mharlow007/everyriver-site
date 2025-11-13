@@ -1,7 +1,7 @@
 /* Base styles for EveryRiver */
 :root{
-  --bg:#f4fafa;
-  --ink:#0c2a2f;
+  --bg:#0b1a2f; /* dark navy */
+  --ink:#ffffff; /* white text */
   --accent:#1aa3b3;
   /* Golden ratio scale */
   --phi:1.61;
@@ -21,7 +21,7 @@ main{max-width:60rem;margin:0 auto;padding:2rem}
 h1{font-size:var(--fs-extra-large);margin:0 0 .5rem}
 .site-logo{display:block;max-width:120px;height:auto;margin:0 auto .5rem}
 a{color:var(--accent);text-decoration:none;margin:0 .4rem}
-footer{margin-top:1rem;font-size:.9rem;color:#556}
+footer{margin-top:1rem;font-size:.9rem;color:rgba(255,255,255,.75)}
 footer .company-link{color:inherit;text-decoration:none;margin:0}
 /* Utility helpers */
 .container{max-width:1100px;margin:0 auto;padding:1rem}
