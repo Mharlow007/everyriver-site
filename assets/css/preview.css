@@ -30,10 +30,14 @@ h1{font-size:var(--fs-extra-large);margin:.5rem 0}
 /* Hero background for pages that need it (home) */
 .hero-bg{
   /* Drop your image at /assets/images/raster/hero.jpg */
-  background-image: linear-gradient(rgba(11,26,47,.6), rgba(11,26,47,.6)), url('/assets/images/raster/hero.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  /* Fallback to boat logo if hero.jpg is missing */
+  background-image:
+    linear-gradient(rgba(11,26,47,.6), rgba(11,26,47,.6)),
+    url('/assets/images/raster/hero.jpg'),
+    url('/assets/images/svg/boat_logo1%20(2).png');
+  background-size: cover, cover, 420px auto;
+  background-position: center, center, center;
+  background-repeat: no-repeat, no-repeat, no-repeat;
 }
 .site-header.hero-bg{padding:2.5rem 1rem 1rem; min-height: 45vh; display:flex; flex-direction:column; align-items:center; justify-content:flex-end}
 /* Bottom fixed nav */
