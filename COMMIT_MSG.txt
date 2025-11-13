@@ -1,1 +1,0 @@
-Enable: "Enable Claude Sonnet 4.5 for all clients"
