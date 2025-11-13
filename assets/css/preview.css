@@ -27,6 +27,15 @@ main{max-width:70rem;margin:0 auto}
 header.site-header{text-align:center;padding:1rem 1rem 0}
 h1{font-size:var(--fs-extra-large);margin:.5rem 0}
 .lede{font-size:var(--fs-large);margin:.5rem 0 1rem;color:var(--muted)}
+/* Hero background for pages that need it (home) */
+.hero-bg{
+  /* Drop your image at /assets/images/raster/hero.jpg */
+  background-image: linear-gradient(rgba(11,26,47,.6), rgba(11,26,47,.6)), url('/assets/images/raster/hero.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.site-header.hero-bg{padding:2.5rem 1rem 1rem; min-height: 45vh; display:flex; flex-direction:column; align-items:center; justify-content:flex-end}
 /* Bottom fixed nav */
 .bottom-nav{position:fixed;left:0;right:0;bottom:0;height:var(--nav-h);display:flex;align-items:center;justify-content:space-around;background:rgba(7,17,34,.95);border-top:1px solid rgba(255,255,255,.15);padding-bottom:env(safe-area-inset-bottom);-webkit-backdrop-filter:saturate(180%) blur(10px);backdrop-filter:saturate(180%) blur(10px)}
 .bottom-nav a{color:var(--muted);text-decoration:none;font-weight:600;padding:.4rem .6rem;border-radius:8px}
