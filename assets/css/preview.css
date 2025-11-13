@@ -1,0 +1,69 @@
+/* Preview site styles */
+:root{
+  --bg:#0b1a2f;            /* dark navy */
+  --ink:#ffffff;            /* white text */
+  --accent:#1aa3b3;
+  --muted:rgba(255,255,255,.75);
+  --nav-h:64px;             /* bottom nav height */
+  --radius:10px;
+  --phi:1.61;
+  --fs-medium:1rem;
+  --fs-large:calc(var(--fs-medium) * var(--phi));
+  --fs-very-large:calc(var(--fs-large) * var(--phi));
+  --fs-extra-large:calc(var(--fs-very-large) * var(--phi));
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  color:var(--ink);
+  background:var(--bg);
+  font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height:1.5;
+}
+main{
+  max-width:70rem;
+  margin:0 auto;
+}
+/* Content area leaves room for fixed bottom nav */
+.content{
+  padding:1rem 1rem calc(var(--nav-h) + 1.25rem + env(safe-area-inset-bottom));
+}
+header.site-header{
+  text-align:center;
+  padding:1rem 1rem 0;
+}
+h1{font-size:var(--fs-extra-large);margin:.5rem 0}
+.lede{font-size:var(--fs-large);margin:.5rem 0 1rem;color:var(--muted)}
+
+/* Bottom fixed nav */
+.bottom-nav{
+  position:fixed;
+  left:0; right:0; bottom:0;
+  height:var(--nav-h);
+  display:flex;
+  align-items:center;
+  justify-content:space-around;
+  background:rgba(7,17,34,.95);
+  border-top:1px solid rgba(255,255,255,.15);
+  padding-bottom:env(safe-area-inset-bottom);
+  -webkit-backdrop-filter:saturate(180%) blur(10px);
+  backdrop-filter:saturate(180%) blur(10px);
+}
+.bottom-nav a{
+  color:var(--muted);
+  text-decoration:none;
+  font-weight:600;
+  padding:.4rem .6rem;
+  border-radius:8px;
+}
+.bottom-nav a:hover{color:#fff}
+.bottom-nav a.active{color:#fff; background:rgba(255,255,255,.08)}
+
+/* Cards / sections */
+.section{background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); border-radius:var(--radius); padding:1rem; margin:0 0 1rem}
+
+/* Responsive tweaks */
+@media (min-width:640px){
+  .content{padding:2rem 1.5rem calc(var(--nav-h) + 2rem + env(safe-area-inset-bottom))}
+}
