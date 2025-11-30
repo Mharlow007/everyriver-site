@@ -70,6 +70,7 @@
       <div class="carousel" aria-live="polite">
         <button class="carousel-btn prev" aria-label="Previous image" type="button">‹</button>
         <ul class="carousel-track" tabindex="0">
+          <!-- Original set (will be shuffled) -->
           <li class="slide" aria-current="true"><img loading="lazy" src="assets/images/raster/Screenshot 2025-11-28 184545.jpg" alt="Screenshot 184545" /></li>
           <li class="slide"><img loading="lazy" src="assets/images/raster/Screenshot 2025-11-28 184754.jpg" alt="Screenshot 184754" /></li>
           <li class="slide"><img loading="lazy" src="assets/images/raster/Screenshot 2025-11-28 185324.jpg" alt="Screenshot 185324" /></li>
@@ -85,6 +86,17 @@
           <li class="slide"><img loading="lazy" src="assets/images/raster/Screenshot 2025-11-28 195132.jpg" alt="Screenshot 195132" /></li>
           <li class="slide"><img loading="lazy" src="assets/images/raster/Screenshot 2025-11-28 195255.jpg" alt="Screenshot 195255" /></li>
           <li class="slide"><img loading="lazy" src="assets/images/raster/Screenshot 2025-11-28 195312.jpg" alt="Screenshot 195312" /></li>
+          <!-- New 2025-11-30 additions -->
+          <li class="slide"><img loading="lazy" src="assets/images/raster/Screenshot 2025-11-30 193458.jpg" alt="Screenshot 193458" /></li>
+          <li class="slide"><img loading="lazy" src="assets/images/raster/Screenshot 2025-11-30 195323.jpg" alt="Screenshot 195323" /></li>
+          <li class="slide"><img loading="lazy" src="assets/images/raster/Screenshot 2025-11-30 195744.jpg" alt="Screenshot 195744" /></li>
+          <li class="slide"><img loading="lazy" src="assets/images/raster/Screenshot 2025-11-30 200046.jpg" alt="Screenshot 200046" /></li>
+          <li class="slide"><img loading="lazy" src="assets/images/raster/Screenshot 2025-11-30 200136.jpg" alt="Screenshot 200136" /></li>
+          <li class="slide"><img loading="lazy" src="assets/images/raster/Screenshot 2025-11-30 200152.jpg" alt="Screenshot 200152" /></li>
+          <li class="slide"><img loading="lazy" src="assets/images/raster/Screenshot 2025-11-30 200208.jpg" alt="Screenshot 200208" /></li>
+          <li class="slide"><img loading="lazy" src="assets/images/raster/Screenshot 2025-11-30 200232.jpg" alt="Screenshot 200232" /></li>
+            <li class="slide"><img loading="lazy" src="assets/images/raster/Screenshot 2025-11-30 200848.jpg" alt="Screenshot 200848" /></li>
+          <li class="slide"><img loading="lazy" src="assets/images/raster/Screenshot 2025-11-30 201448.jpg" alt="Screenshot 201448" /></li>
         </ul>
         <button class="carousel-btn next" aria-label="Next image" type="button">›</button>
       </div>
@@ -111,6 +123,24 @@
   if(!root) return;
   const track=root.querySelector('.carousel-track');
   const slides=[...track.children];
+  // Shuffle slides to present in random order each load (Fisher-Yates)
+  (function shuffle(){
+    for(let i=slides.length-1;i>0;i--){
+      const j=Math.floor(Math.random()*(i+1));
+      if(i!==j){
+        // swap in DOM
+        const nodeI=slides[i];
+        const nodeJ=slides[j];
+        const nextI=nodeI.nextSibling;
+        track.insertBefore(nodeI,nodeJ);
+        track.insertBefore(nodeJ,nextI);
+        [slides[i],slides[j]]=[slides[j],slides[i]];
+      }
+    }
+    // Reset current marker to first after shuffle
+    slides.forEach(s=>s.removeAttribute('aria-current'));
+    slides[0].setAttribute('aria-current','true');
+  })();
   const prev=root.querySelector('.carousel-btn.prev');
   const next=root.querySelector('.carousel-btn.next');
   let index=slides.findIndex(s=>s.hasAttribute('aria-current')); if(index<0) index=0;
