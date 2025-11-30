@@ -165,17 +165,31 @@
       const isDouble=now - lastTap < 350; // double-tap window
       lastTap=now;
       const target=root; // fullscreen the carousel container
-      if(document.fullscreenElement){
-        document.exitFullscreen();
-      }else{
-        if(isDouble){
-          target.requestFullscreen && target.requestFullscreen();
-        }else{
-          // Single click also toggles fullscreen for desktop convenience
-          target.requestFullscreen && target.requestFullscreen();
+      if(document.fullscreenElement || document.webkitFullscreenElement){
+        if(document.exitFullscreen){document.exitFullscreen();}
+        else if(document.webkitExitFullscreen){document.webkitExitFullscreen();}
+        else{target.classList.remove('carousel-faux-fullscreen');}
+        return;
+      }
+      function tryNativeFullscreen(){
+        if(target.requestFullscreen){target.requestFullscreen();return true;}
+        if(target.webkitRequestFullscreen){target.webkitRequestFullscreen();return true;}
+        return false;
+      }
+      const wantFullscreen = true; // both single and double tap toggle
+      if(wantFullscreen){
+        if(!tryNativeFullscreen()){
+          // Fallback for iOS Safari: simulate fullscreen via class
+          target.classList.add('carousel-faux-fullscreen');
         }
       }
     });
+  });
+  // Exit faux fullscreen on Escape key
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape'){ root.classList.remove('carousel-faux-fullscreen'); } });
+  // Sync height after native fullscreen changes
+  ['fullscreenchange','webkitfullscreenchange'].forEach(evt=>{
+    document.addEventListener(evt,()=>{ adjustHeight(); });
   });
 })();
 </script>
