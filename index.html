@@ -31,17 +31,17 @@
     <section class="section mission-card wide">
       <div class="mission-body">
         <p>We believe the more you know a river, the more you love it.</p>
-        <p>People come to rivers for all sorts of reasons - fish, walk, row, boat, swim, feed ducks or feed themselves with a beautiful view.</p>
-        <p>The more we understand the river, the more we can access it, enjoy it, care for it and have even more fun. And from that enjoyment comes a deeper curiosity and care.</p>
+        <p>People come to rivers for all sorts of reasons - to fish, walk, row, boat, swim, feed ducks or feed themselves, all with a beautiful view.</p>
+        <p>The more we understand the river, the more we can access it, enjoy it, care for it and have more fun. And from that greater enjoyment comes a deeper curiosity.</p>
         <p>EveryRiver has the wild ambition of telling the story of every river everywhere. We think that would be just amazing. We hope you do too.</p>
       </div>
     </section>
     <section class="section mission-card">
       <h3 class="mission-subhead" id="mission-stories-heading">Telling Stories</h3>
       <p>We are aiming to have daily new content on rivers from March 2026.</p>
-      <p>We will cover watersports, boating, nature, history, pollution, river conditions, geography, hydrology, how to visit, how to access, where to get stay or eat with a river view, navigation rules and conditions, rainfall, aquifer levels and flow rates, events, locks, route planning, canoe/paddleboard trails, tides, the sheer beauty of a river or canal landscape and so much more.</p>
-      <p>Please <a href="follow.html">follow</a> to keep in touch with what we are learning and doing. We would love to hear your ideas on how we can create something of greatest worth to you.</p>
-      <p>If you subscribe to these channels you will also see our photo and video content as it emerges. The Flickr page is where we are storing the photos we are using on the prototype database and website.</p>
+      <p>We will cover watersports, boating, nature, history, pollution, river conditions, geography, hydrology, how to visit, how to access, where to stay or eat with a river view, navigation rules, river conditions, rainfall, aquifer levels, historic river buildings, flow rates, events, locks, route planning, canoe/paddleboard trails, tides, the sheer beauty of a river or canal landscape and so much more.</p>
+      <p>Please <a href="follow.html">follow</a> to keep in touch with what we are learning and doing. We will need your feedback to create something of greatest worth to you.</p>
+      <p>If you subscribe to these channels you will also see our photo and video content as it emerges. The Flickr page is where we are already storing the photos we are use on the prototype database and website. They're not our best, but they are a start.</p>
       <div class="mission-socials" aria-label="EveryRiver social links">
         <a class="hero-social-link flickr" href="https://www.flickr.com/people/202301487@N08/" target="_blank" rel="noopener" aria-label="View EveryRiver photos on Flickr">
           <span class="sr-only">flickr</span>
@@ -73,7 +73,7 @@
     </section>
     <section class="section mission-card">
       <h3 class="mission-subhead">In development</h3>
-      <p>A rich source of river information for your phone or laptop. Below are some sample screenshots of the real work-in-progress. But it is very early days and this will be wrong now and much improved later. This is the coat-rail on which you can hang your stories of your river.</p>
+      <p>A foundation to the story-telling will be a rich permanent source of river information in an app and website. Below are some sample screenshots of the real work-in-progress. But it is very early days and this will be wrong now and much improved later. This is the coat-rail on which you will be able to hang your stories, of your river, with your photos and your information.</p>
       <p><a class="nav-pill" href="follow.html">Follow</a></p>
     </section>
     <section class="mission-carousel" aria-label="River related screenshots">
@@ -165,6 +165,12 @@
       const slide=slides[index];
       const img=slide.querySelector('img');
       if(!img) return;
+      // In fullscreen modes, let CSS own the container height (so we can keep
+      // a full-viewport backdrop while the image sizes itself proportionally).
+      if(root.matches(':fullscreen') || root.classList.contains('carousel-faux-fullscreen')){
+        root.style.height='';
+        return;
+      }
       if(img.complete){
         root.style.height=img.offsetHeight+ 'px';
       }
