@@ -81,7 +81,7 @@ h1{font-size:var(--fs-extra-large);margin:.5rem 0}
 .carousel-track{display:grid;grid-template-columns:1fr;list-style:none;padding:0;margin:0;touch-action:pan-y;position:relative}
 .slide{grid-area:1/1;opacity:0;pointer-events:none;transition:opacity .4s ease;display:flex;justify-content:center;align-items:center;position:absolute;inset:0}
 .slide[aria-current="true"]{opacity:1;pointer-events:auto;position:relative}
-.slide img{display:block;flex:0 0 auto;max-width:100%;width:auto;height:auto;max-height:calc(100vh - var(--nav-h) - env(safe-area-inset-bottom) - 2rem)}
+.slide img{display:block;flex:0 0 auto;max-width:100%;width:auto;height:auto;max-height:calc(100vh - var(--nav-h) - env(safe-area-inset-bottom) - 2rem);object-fit:contain}
 @supports (height: 100svh){
   .slide img{max-height:calc(100svh - var(--nav-h) - env(safe-area-inset-bottom) - 2rem)}
 }
