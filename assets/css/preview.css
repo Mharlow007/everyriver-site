@@ -231,6 +231,10 @@ html{scrollbar-gutter:stable}
 .nav-pill:hover{background:rgba(7,17,34,.95);border-color:rgba(255,255,255,.9);text-decoration:none}
 .nav-pill.active{background:rgba(255,255,255,.22)}
 
+/* Variant: black background + white border */
+.nav-pill.nav-pill--stay{background:#000;border-color:#fff}
+.nav-pill.nav-pill--stay:hover{background:#000;border-color:#fff}
+
 /* Bottom nav: keep pill sizing consistent with other items */
 .bottom-nav a.nav-pill{margin:0;width:auto;height:auto;border-radius:999px}
 
