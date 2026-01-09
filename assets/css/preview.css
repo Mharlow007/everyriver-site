@@ -174,6 +174,7 @@ h1{font-size:var(--fs-extra-large);margin:.5rem 0}
 .bottom-nav .nav-icon.nav-logo{width:32px;height:32px;border-radius:50%;filter:none;object-fit:contain}
 /* Cards / sections */
 .section{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:1rem;margin:0 0 1rem}
+.mission-card--intro{padding:1.2rem}
 .mission-card p{margin:.75rem 0;text-align:left}
 .follow-strip{display:block;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:.9rem 1rem;color:#fff;text-decoration:none;font-weight:600;letter-spacing:.02em}
 .follow-strip:hover{background:rgba(255,255,255,.1);text-decoration:none}
