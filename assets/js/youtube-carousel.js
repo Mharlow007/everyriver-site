@@ -20,7 +20,11 @@
   async function init() {
     const rawList = await getVideoList();
     const videos = rawList
-      .map((v) => ({ raw: String(v || '').trim(), id: extractYouTubeId(String(v || '').trim()) }))
+      .map((v, i) => ({
+        raw: String(v || '').trim(),
+        id: extractYouTubeId(String(v || '').trim()),
+        title: `Video ${i + 1}`,
+      }))
       .filter((v) => Boolean(v.id));
 
     if (!videos.length) {
@@ -47,6 +51,7 @@
       })
       .join('');
 
+    renderActiveMeta();
     renderPreviewStrip(videos);
 
     const slides = Array.from(track.children);
@@ -55,6 +60,7 @@
       if (i === index) s.setAttribute('aria-current', 'true');
       else s.removeAttribute('aria-current');
     });
+    syncActiveMeta();
     syncPreviewState();
 
     let isInView = false;
@@ -82,6 +88,7 @@
       slides[index].removeAttribute('aria-current');
       slides[i].setAttribute('aria-current', 'true');
       index = i;
+      syncActiveMeta();
       syncPreviewState();
       ensureLoaded(index);
       adjustHeight();
@@ -117,6 +124,7 @@
     ensureLoaded(index);
     adjustHeight();
     maybePlayActive();
+    void hydrateTitles();
 
     function ensureLoaded(i) {
       const iframe = getIframe(i);
@@ -179,7 +187,12 @@
         })
         .join('');
 
-      carouselRoot.insertAdjacentElement('afterend', previewStrip);
+      const meta = carouselRoot.parentElement.querySelector('.youtube-active-meta');
+      if (meta) {
+        meta.insertAdjacentElement('afterend', previewStrip);
+      } else {
+        carouselRoot.insertAdjacentElement('afterend', previewStrip);
+      }
       previewStrip.querySelectorAll('.youtube-preview').forEach((button) => {
         button.addEventListener('click', () => {
           const nextIndex = Number(button.getAttribute('data-video-index'));
@@ -188,12 +201,46 @@
       });
     }
 
+    function renderActiveMeta() {
+      const existing = carouselRoot.parentElement.querySelector('.youtube-active-meta');
+      if (existing) existing.remove();
+      const meta = document.createElement('div');
+      meta.className = 'youtube-active-meta';
+      meta.innerHTML = '<p class="youtube-active-title"></p>';
+      carouselRoot.insertAdjacentElement('afterend', meta);
+    }
+
+    function syncActiveMeta() {
+      const titleNode = carouselRoot.parentElement.querySelector('.youtube-active-title');
+      if (!titleNode) return;
+      const activeVideo = videos[index];
+      titleNode.textContent = activeVideo && activeVideo.title ? activeVideo.title : `Video ${index + 1}`;
+    }
+
     function syncPreviewState() {
       const previews = carouselRoot.parentElement.querySelectorAll('.youtube-preview');
       previews.forEach((button, i) => {
         if (i === index) button.setAttribute('aria-current', 'true');
         else button.removeAttribute('aria-current');
       });
+    }
+
+    async function hydrateTitles() {
+      await Promise.all(
+        videos.map(async (video, i) => {
+          const title = await fetchVideoTitle(video.id);
+          if (!title) return;
+          video.title = title;
+
+          const iframe = getIframe(i);
+          if (iframe) iframe.title = title;
+
+          const preview = carouselRoot.parentElement.querySelector(`.youtube-preview[data-video-index="${i}"]`);
+          if (preview) preview.setAttribute('title', title);
+
+          if (i === index) syncActiveMeta();
+        })
+      );
     }
   }
 
@@ -253,6 +300,22 @@
 
   function buildThumbnailUrl(videoId) {
     return `https://i.ytimg.com/vi/${encodeURIComponent(videoId)}/hqdefault.jpg`;
+  }
+
+  async function fetchVideoTitle(videoId) {
+    try {
+      const url = new URL('https://www.youtube.com/oembed');
+      url.searchParams.set('url', `https://www.youtube.com/watch?v=${videoId}`);
+      url.searchParams.set('format', 'json');
+
+      const response = await fetch(url.toString(), { cache: 'no-store' });
+      if (!response.ok) return '';
+
+      const data = await response.json();
+      return typeof data.title === 'string' ? data.title.trim() : '';
+    } catch {
+      return '';
+    }
   }
 
   function extractYouTubeId(input) {
