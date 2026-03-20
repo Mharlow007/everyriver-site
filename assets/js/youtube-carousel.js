@@ -13,154 +13,173 @@
   const track = carouselRoot.querySelector('.carousel-track');
   const prev = carouselRoot.querySelector('.carousel-btn.prev');
   const next = carouselRoot.querySelector('.carousel-btn.next');
-
-  const rawList = Array.isArray(window.ER_YOUTUBE_VIDEOS) ? window.ER_YOUTUBE_VIDEOS : [];
-  const videos = rawList
-    .map((v) => ({ raw: String(v || '').trim(), id: extractYouTubeId(String(v || '').trim()) }))
-    .filter((v) => Boolean(v.id));
-
-  if (!videos.length) {
-    if (track) {
-      track.innerHTML =
-        '<li class="slide" aria-current="true"><div class="youtube-carousel-empty" role="status">No videos configured yet.</div></li>';
-    }
-    return;
-  }
-
   if (!track || !prev || !next) return;
 
-  track.innerHTML = videos
-    .map((v) => {
-      const dataSrc = buildEmbedUrl(v.id);
-      const title = 'YouTube video';
-      return (
-        '<li class="slide" aria-current="false">' +
-        '<iframe class="youtube-embed" title="' +
-        escapeHtml(title) +
-        '" data-src="' +
-        escapeHtml(dataSrc) +
-        '" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>' +
-        '</li>'
-      );
-    })
-    .join('');
+  init();
 
-  const slides = Array.from(track.children);
-  let index = Math.max(0, slides.length - 1); // latest (last item)
-  slides.forEach((s, i) => {
-    if (i === index) s.setAttribute('aria-current', 'true');
-    else s.removeAttribute('aria-current');
-  });
+  async function init() {
+    const rawList = await getVideoList();
+    const videos = rawList
+      .map((v) => ({ raw: String(v || '').trim(), id: extractYouTubeId(String(v || '').trim()) }))
+      .filter((v) => Boolean(v.id));
 
-  let isInView = false;
-
-  const ro = new ResizeObserver(() => adjustHeight());
-  ro.observe(carouselRoot);
-
-  // Observe visibility to control autoplay/pause
-  const io = new IntersectionObserver(
-    (entries) => {
-      const entry = entries[0];
-      isInView = Boolean(entry && entry.isIntersecting && entry.intersectionRatio >= 0.6);
-      if (isInView) {
-        maybePlayActive();
-      } else {
-        pauseAt(index);
-      }
-    },
-    { threshold: [0, 0.6, 1] }
-  );
-  io.observe(carouselRoot);
-
-  function setActive(i) {
-    if (i === index) return;
-    pauseAt(index);
-    slides[index].removeAttribute('aria-current');
-    slides[i].setAttribute('aria-current', 'true');
-    index = i;
-    ensureLoaded(index);
-    adjustHeight();
-    maybePlayActive();
-  }
-
-  function go(dir) {
-    setActive((index + dir + slides.length) % slides.length);
-  }
-
-  prev.addEventListener('click', () => go(-1));
-  next.addEventListener('click', () => go(1));
-  track.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft') go(-1);
-    else if (e.key === 'ArrowRight') go(1);
-  });
-
-  // Swipe (horizontal threshold)
-  let sx = 0,
-    dx = 0;
-  track.addEventListener('touchstart', (e) => {
-    sx = e.touches[0].clientX;
-    dx = 0;
-  });
-  track.addEventListener('touchmove', (e) => {
-    dx = e.touches[0].clientX - sx;
-  });
-  track.addEventListener('touchend', () => {
-    if (Math.abs(dx) > 45) {
-      go(dx > 0 ? -1 : 1);
-    }
-  });
-
-  // Initial load
-  ensureLoaded(index);
-  adjustHeight();
-  maybePlayActive();
-
-  function ensureLoaded(i) {
-    const iframe = getIframe(i);
-    if (!iframe) return;
-    if (iframe.src) return;
-    const src = iframe.getAttribute('data-src');
-    if (src) iframe.src = src;
-  }
-
-  function maybePlayActive() {
-    if (!isInView) return;
-    playAt(index);
-  }
-
-  function getIframe(i) {
-    return slides[i] ? slides[i].querySelector('iframe') : null;
-  }
-
-  function playAt(i) {
-    ensureLoaded(i);
-    const iframe = getIframe(i);
-    if (!iframe || !iframe.contentWindow) return;
-    ytCommand(iframe, 'mute');
-    ytCommand(iframe, 'playVideo');
-  }
-
-  function pauseAt(i) {
-    const iframe = getIframe(i);
-    if (!iframe || !iframe.contentWindow) return;
-    ytCommand(iframe, 'pauseVideo');
-  }
-
-  function adjustHeight() {
-    // Let fullscreen/faux-fullscreen CSS control height
-    if (carouselRoot.matches(':fullscreen') || carouselRoot.classList.contains('carousel-faux-fullscreen')) {
-      carouselRoot.style.height = '';
+    if (!videos.length) {
+      track.innerHTML =
+        '<li class="slide" aria-current="true"><div class="youtube-carousel-empty" role="status">No videos configured yet.</div></li>';
       return;
     }
 
-    const iframe = getIframe(index);
-    if (!iframe) return;
+    track.innerHTML = videos
+      .map((v) => {
+        const dataSrc = buildEmbedUrl(v.id);
+        const title = 'YouTube video';
+        return (
+          '<li class="slide" aria-current="false">' +
+          '<iframe class="youtube-embed" title="' +
+          escapeHtml(title) +
+          '" data-src="' +
+          escapeHtml(dataSrc) +
+          '" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>' +
+          '</li>'
+        );
+      })
+      .join('');
 
-    // If iframe isn't loaded yet, fall back to aspect-ratio height.
-    const rect = iframe.getBoundingClientRect();
-    if (rect.height) {
-      carouselRoot.style.height = rect.height + 'px';
+    const slides = Array.from(track.children);
+    let index = Math.max(0, slides.length - 1); // latest (last item)
+    slides.forEach((s, i) => {
+      if (i === index) s.setAttribute('aria-current', 'true');
+      else s.removeAttribute('aria-current');
+    });
+
+    let isInView = false;
+
+    const ro = new ResizeObserver(() => adjustHeight());
+    ro.observe(carouselRoot);
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        isInView = Boolean(entry && entry.isIntersecting && entry.intersectionRatio >= 0.6);
+        if (isInView) {
+          maybePlayActive();
+        } else {
+          pauseAt(index);
+        }
+      },
+      { threshold: [0, 0.6, 1] }
+    );
+    io.observe(carouselRoot);
+
+    function setActive(i) {
+      if (i === index) return;
+      pauseAt(index);
+      slides[index].removeAttribute('aria-current');
+      slides[i].setAttribute('aria-current', 'true');
+      index = i;
+      ensureLoaded(index);
+      adjustHeight();
+      maybePlayActive();
     }
+
+    function go(dir) {
+      setActive((index + dir + slides.length) % slides.length);
+    }
+
+    prev.addEventListener('click', () => go(-1));
+    next.addEventListener('click', () => go(1));
+    track.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') go(-1);
+      else if (e.key === 'ArrowRight') go(1);
+    });
+
+    let sx = 0,
+      dx = 0;
+    track.addEventListener('touchstart', (e) => {
+      sx = e.touches[0].clientX;
+      dx = 0;
+    });
+    track.addEventListener('touchmove', (e) => {
+      dx = e.touches[0].clientX - sx;
+    });
+    track.addEventListener('touchend', () => {
+      if (Math.abs(dx) > 45) {
+        go(dx > 0 ? -1 : 1);
+      }
+    });
+
+    ensureLoaded(index);
+    adjustHeight();
+    maybePlayActive();
+
+    function ensureLoaded(i) {
+      const iframe = getIframe(i);
+      if (!iframe) return;
+      if (iframe.src) return;
+      const src = iframe.getAttribute('data-src');
+      if (src) iframe.src = src;
+    }
+
+    function maybePlayActive() {
+      if (!isInView) return;
+      playAt(index);
+    }
+
+    function getIframe(i) {
+      return slides[i] ? slides[i].querySelector('iframe') : null;
+    }
+
+    function playAt(i) {
+      ensureLoaded(i);
+      const iframe = getIframe(i);
+      if (!iframe || !iframe.contentWindow) return;
+      ytCommand(iframe, 'mute');
+      ytCommand(iframe, 'playVideo');
+    }
+
+    function pauseAt(i) {
+      const iframe = getIframe(i);
+      if (!iframe || !iframe.contentWindow) return;
+      ytCommand(iframe, 'pauseVideo');
+    }
+
+    function adjustHeight() {
+      if (carouselRoot.matches(':fullscreen') || carouselRoot.classList.contains('carousel-faux-fullscreen')) {
+        carouselRoot.style.height = '';
+        return;
+      }
+
+      const iframe = getIframe(index);
+      if (!iframe) return;
+      const rect = iframe.getBoundingClientRect();
+      if (rect.height) {
+        carouselRoot.style.height = rect.height + 'px';
+      }
+    }
+  }
+
+  async function getVideoList() {
+    const globalList = Array.isArray(window.ER_YOUTUBE_VIDEOS) ? window.ER_YOUTUBE_VIDEOS : [];
+    if (globalList.length) return globalList;
+
+    try {
+      const response = await fetch('assets/js/youtube-videos.js?v=20260320-3', { cache: 'no-store' });
+      if (!response.ok) return [];
+      const source = await response.text();
+      return extractQuotedEntries(source);
+    } catch {
+      return [];
+    }
+  }
+
+  function extractQuotedEntries(source) {
+    const matches = source.match(/"([^"\\]*(\\.[^"\\]*)*)"|'([^'\\]*(\\.[^'\\]*)*)'/g) || [];
+    return matches
+      .map((match) => {
+        const trimmed = match.trim();
+        return trimmed.slice(1, -1);
+      })
+      .filter(Boolean);
   }
 
   function ytCommand(iframe, func) {
