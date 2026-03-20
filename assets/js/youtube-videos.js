@@ -16,5 +16,7 @@
 */
 
 window.ER_YOUTUBE_VIDEOS = [
-  // "https://www.youtube.com/watch?v=UGaWh2FLOy8&t=4s",
+  "https://www.youtube.com/watch?v=UGaWh2FLOy8&t=4s",
+  // Add the newest video as a new line (keep newest LAST), for example:
+  // "https://youtu.be/VIDEO_ID",
 ];
