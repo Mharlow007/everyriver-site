@@ -150,21 +150,12 @@
     }
 
     function adjustHeight() {
-      if (carouselRoot.matches(':fullscreen') || carouselRoot.classList.contains('carousel-faux-fullscreen')) {
-        carouselRoot.style.height = '';
-        return;
-      }
-
-      const width = carouselRoot.clientWidth;
-      if (!width) return;
-      carouselRoot.style.height = Math.round((width * 9) / 16) + 'px';
+      carouselRoot.style.height = '';
     }
 
     function renderPreviewStrip(items) {
       const existing = carouselRoot.parentElement.querySelector('.youtube-preview-strip');
       if (existing) existing.remove();
-      if (items.length <= 1) return;
-
       const previewStrip = document.createElement('div');
       previewStrip.className = 'youtube-preview-strip';
       previewStrip.setAttribute('aria-label', 'Video previews');
