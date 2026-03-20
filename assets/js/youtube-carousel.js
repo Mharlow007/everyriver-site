@@ -30,20 +30,24 @@
     }
 
     track.innerHTML = videos
-      .map((v) => {
+      .map((v, i) => {
         const dataSrc = buildEmbedUrl(v.id);
-        const title = 'YouTube video';
+        const title = `YouTube video ${i + 1}`;
         return (
           '<li class="slide" aria-current="false">' +
+          '<div class="youtube-embed-wrap">' +
           '<iframe class="youtube-embed" title="' +
           escapeHtml(title) +
           '" data-src="' +
           escapeHtml(dataSrc) +
           '" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>' +
+          '</div>' +
           '</li>'
         );
       })
       .join('');
+
+    renderPreviewStrip(videos);
 
     const slides = Array.from(track.children);
     let index = Math.max(0, slides.length - 1); // latest (last item)
@@ -51,6 +55,7 @@
       if (i === index) s.setAttribute('aria-current', 'true');
       else s.removeAttribute('aria-current');
     });
+    syncPreviewState();
 
     let isInView = false;
 
@@ -77,6 +82,7 @@
       slides[index].removeAttribute('aria-current');
       slides[i].setAttribute('aria-current', 'true');
       index = i;
+      syncPreviewState();
       ensureLoaded(index);
       adjustHeight();
       maybePlayActive();
@@ -149,12 +155,54 @@
         return;
       }
 
-      const iframe = getIframe(index);
-      if (!iframe) return;
-      const rect = iframe.getBoundingClientRect();
-      if (rect.height) {
-        carouselRoot.style.height = rect.height + 'px';
-      }
+      const width = carouselRoot.clientWidth;
+      if (!width) return;
+      carouselRoot.style.height = Math.round((width * 9) / 16) + 'px';
+    }
+
+    function renderPreviewStrip(items) {
+      const existing = carouselRoot.parentElement.querySelector('.youtube-preview-strip');
+      if (existing) existing.remove();
+      if (items.length <= 1) return;
+
+      const previewStrip = document.createElement('div');
+      previewStrip.className = 'youtube-preview-strip';
+      previewStrip.setAttribute('aria-label', 'Video previews');
+      previewStrip.innerHTML = items
+        .map((item, i) => {
+          const thumb = buildThumbnailUrl(item.id);
+          const label = i === items.length - 1 ? `Latest video ${i + 1}` : `Video ${i + 1}`;
+          return (
+            '<button class="youtube-preview" type="button" data-video-index="' +
+            i +
+            '" aria-label="' +
+            escapeHtml(label) +
+            '">' +
+            '<img src="' +
+            escapeHtml(thumb) +
+            '" alt="' +
+            escapeHtml(label) +
+            '" loading="lazy" />' +
+            '</button>'
+          );
+        })
+        .join('');
+
+      carouselRoot.insertAdjacentElement('afterend', previewStrip);
+      previewStrip.querySelectorAll('.youtube-preview').forEach((button) => {
+        button.addEventListener('click', () => {
+          const nextIndex = Number(button.getAttribute('data-video-index'));
+          if (!Number.isNaN(nextIndex)) setActive(nextIndex);
+        });
+      });
+    }
+
+    function syncPreviewState() {
+      const previews = carouselRoot.parentElement.querySelectorAll('.youtube-preview');
+      previews.forEach((button, i) => {
+        if (i === index) button.setAttribute('aria-current', 'true');
+        else button.removeAttribute('aria-current');
+      });
     }
   }
 
@@ -210,6 +258,10 @@
       enablejsapi: '1',
     });
     return `https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}?${params.toString()}`;
+  }
+
+  function buildThumbnailUrl(videoId) {
+    return `https://i.ytimg.com/vi/${encodeURIComponent(videoId)}/hqdefault.jpg`;
   }
 
   function extractYouTubeId(input) {
