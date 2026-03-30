@@ -268,6 +268,7 @@ html{scrollbar-gutter:stable}
 
 /* Bottom nav: keep pill sizing consistent with other items */
 .bottom-nav a.nav-pill{margin:0;width:auto;height:auto;border-radius:999px}
+.bottom-nav .nav-pill{padding:.5rem .75rem;font-size:.82rem;letter-spacing:.03em;white-space:nowrap}
 
 /* Follow page: center headings and text */
 .follow-page .mission-card{text-align:center}
@@ -280,3 +281,34 @@ html{scrollbar-gutter:stable}
 .hero-footer{bottom:.6rem;z-index:500}
 .hero-footer{position:fixed !important;left:0;right:0;bottom:54px;display:flex;justify-content:space-between;align-items:flex-end;padding:0 clamp(1.25rem,4vw,3rem);z-index:900}
 .about-page .site-credit{margin:1.5rem clamp(1rem,4vw,3rem) 0 auto}
+
+/* Surveys page */
+.surveys-page .mission-card p{text-align:left}
+.surveys-subhead{margin-top:0}
+.surveys-panel{display:grid;gap:1rem}
+.surveys-panel-head{display:grid;gap:.35rem}
+.surveys-panel-note{margin:0;color:var(--muted)}
+.survey-list{display:grid;gap:.85rem}
+.survey-item{border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);background:rgba(255,255,255,.03);overflow:hidden}
+.survey-item[open]{background:rgba(255,255,255,.06)}
+.survey-summary{display:flex;align-items:center;justify-content:space-between;gap:1rem;list-style:none;padding:1rem 1.1rem;cursor:pointer;font-weight:600}
+.survey-summary::-webkit-details-marker{display:none}
+.survey-summary::after{content:'+';font-size:1.5rem;line-height:1;flex:0 0 auto;color:rgba(255,255,255,.9)}
+.survey-item[open] .survey-summary::after{content:'−'}
+.survey-summary-text{font-size:1.02rem;letter-spacing:.03em}
+.survey-status{display:inline-flex;align-items:center;justify-content:center;padding:.3rem .65rem;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(7,17,34,.55);color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;white-space:nowrap}
+.survey-body{padding:0 1.1rem 1.1rem}
+.survey-description{margin:0 0 1rem;color:var(--muted)}
+.survey-actions{margin:0 0 1rem}
+.survey-frame-wrap{border:1px solid rgba(255,255,255,.12);border-radius:calc(var(--radius) - 2px);overflow:hidden;background:#fff}
+.survey-frame{display:block;width:100%;border:0;background:#fff}
+.survey-link-only,.survey-empty,.survey-missing{padding:1rem;border-radius:calc(var(--radius) - 2px);background:rgba(255,255,255,.04);color:var(--muted)}
+.survey-empty,.survey-missing{margin:0}
+@media (max-width: 640px){
+  .survey-summary{align-items:flex-start;flex-wrap:wrap}
+  .survey-status{order:3}
+}
+@media (max-width: 420px){
+  .bottom-nav{gap:.45rem;padding:4px .55rem calc(4px + env(safe-area-inset-bottom))}
+  .bottom-nav .nav-pill{padding:.48rem .62rem;font-size:.76rem;letter-spacing:.02em}
+}

@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EveryRiver — Feedback</title>
+  <link rel="stylesheet" href="assets/css/preview.css?v=20260330-1" />
+</head>
+<body class="mission-page surveys-page">
+  <header class="mission-lead">
+    <div class="brand-mark" aria-label="EveryRiver">
+      <img src="assets/images/raster/boat_logo.png" alt="EveryRiver boat logo" />
+      <span class="brand-name">EveryRiver</span>
+    </div>
+    <p class="tagline">Feedback</p>
+  </header>
+
+  <main class="mission-content" aria-label="Weekly walk surveys">
+    <section class="section mission-card wide">
+      <h2 class="mission-subhead surveys-subhead">River Atlas and Guide user surveys</h2>
+      <p>We really need your input on what you would find interesting and helpful. Each week we will have a short survey on another topic. Follow the newsletter and videos to get a more colourful take on why these questions will matter a lot to the quality and public value in the final product.</p>
+    </section>
+
+    <section class="section mission-card wide surveys-panel" aria-labelledby="weekly-surveys-heading">
+      <div class="surveys-panel-head">
+        <h3 id="weekly-surveys-heading" class="mission-subhead surveys-subhead">Weekly surveys</h3>
+        <p class="surveys-panel-note">Open one week at a time. Embedded forms load on first open to keep the page fast.</p>
+      </div>
+      <div id="survey-list" class="survey-list" aria-live="polite"></div>
+    </section>
+
+    <section class="section mission-card wide surveys-help" aria-labelledby="survey-help-heading">
+      <h3 id="survey-help-heading" class="mission-subhead surveys-subhead">What to paste in from Google Forms</h3>
+      <p>For each week, the best input is the Google Forms embed URL. If you only have the public form link, this page can still show a link button until the embed is ready.</p>
+      <p>You can send one of these for each week: the full embed snippet from Google Forms, the embed URL on its own, or the public share link.</p>
+    </section>
+
+    <p class="site-credit"><a href="about.html">© EveryRiver Atlas Limited</a></p>
+  </main>
+
+  <nav class="bottom-nav" aria-label="Primary">
+    <a href="index.html" aria-label="Home">
+      <img src="assets/images/svg/home-svgrepo-com.svg" alt="" class="nav-icon" />
+    </a>
+    <a href="follow.html" class="nav-pill" aria-label="Get the newsletter">Get the newsletter</a>
+    <a href="surveys.html" class="nav-pill active" aria-label="Feedback">Feedback</a>
+    <a href="about.html" aria-label="About Us">
+      <img src="assets/images/raster/boat_button.png" alt="EveryRiver logo" class="nav-icon nav-logo" />
+    </a>
+  </nav>
+
+  <script>
+  const surveyItems = [
+    {
+      title: 'Week 1: River Sources',
+      description: 'Responses for the first week of the walk, focused on river sources.',
+      formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSdEePWugUrmpw1NFDrn9cO95uqmipOfwTqm8tpNw-oehBFV-Q/viewform',
+      embedUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSdEePWugUrmpw1NFDrn9cO95uqmipOfwTqm8tpNw-oehBFV-Q/viewform?embedded=true',
+      frameHeight: 1769,
+      status: 'Live'
+    },
+    {
+      title: 'Week 2: River Mouths',
+      description: 'Responses for the second week of the walk, focused on river mouths.',
+      formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSefano3FP5zTmCVIW612llLu_8Jd2A6i5Gtwu1pKdDUY-_q0w/viewform',
+      embedUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSefano3FP5zTmCVIW612llLu_8Jd2A6i5Gtwu1pKdDUY-_q0w/viewform?embedded=true',
+      frameHeight: 2047,
+      status: 'Live'
+    }
+  ];
+
+  (function () {
+    const list = document.getElementById('survey-list');
+    const defaultFrameHeight = 1180;
+
+    if (!list) {
+      return;
+    }
+
+    if (!surveyItems.length) {
+      list.innerHTML = '<p class="survey-empty">No weekly surveys have been added yet.</p>';
+      return;
+    }
+
+    list.innerHTML = surveyItems.map(function (item, index) {
+      const hasEmbed = Boolean(item.embedUrl);
+      const hasLink = Boolean(item.formUrl);
+      const summary = escapeHtml(item.title || 'Untitled week');
+      const description = escapeHtml(item.description || '');
+      const status = escapeHtml(item.status || (hasEmbed ? 'Embedded form ready' : hasLink ? 'Link ready' : 'Coming soon'));
+      const frameHeight = Number(item.frameHeight) > 0 ? Number(item.frameHeight) : defaultFrameHeight;
+      const embedMarkup = hasEmbed
+        ? '<div class="survey-frame-wrap">' +
+            '<iframe class="survey-frame" title="' + summary + ' Google Form" loading="lazy" data-src="' + escapeHtml(item.embedUrl) + '" style="height:' + frameHeight + 'px" allow="clipboard-write"></iframe>' +
+          '</div>'
+        : '<div class="survey-link-only"><p>This week is set up for a link-only release right now.</p></div>';
+      const linkMarkup = hasLink
+        ? '<p class="survey-actions"><a class="nav-pill" href="' + escapeHtml(item.formUrl) + '" target="_blank" rel="noopener">Open survey in a new tab</a></p>'
+        : '<p class="survey-missing">Add a Google Forms link or embed URL for this week.</p>';
+
+      return '' +
+        '<details class="survey-item" data-index="' + index + '">' +
+          '<summary class="survey-summary">' +
+            '<span class="survey-summary-text">' + summary + '</span>' +
+            '<span class="survey-status">' + status + '</span>' +
+          '</summary>' +
+          '<div class="survey-body">' +
+            '<p class="survey-description">' + description + '</p>' +
+            linkMarkup +
+            embedMarkup +
+          '</div>' +
+        '</details>';
+    }).join('');
+
+    Array.prototype.forEach.call(list.querySelectorAll('.survey-item'), function (item) {
+      item.addEventListener('toggle', function () {
+        if (!item.open) {
+          return;
+        }
+
+        const frame = item.querySelector('.survey-frame');
+        if (frame && !frame.src && frame.dataset.src) {
+          frame.src = frame.dataset.src;
+        }
+      });
+    });
+
+    function escapeHtml(value) {
+      return String(value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+  })();
+  </script>
+</body>
+</html>
