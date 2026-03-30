@@ -249,7 +249,7 @@
     if (globalList.length) return globalList;
 
     try {
-      const response = await fetch('assets/js/youtube-videos.js?v=20260320-3', { cache: 'no-store' });
+      const response = await fetch('assets/js/youtube-videos.js?v=20260330-1', { cache: 'no-store' });
       if (!response.ok) return [];
       const source = await response.text();
       return extractQuotedEntries(source);
