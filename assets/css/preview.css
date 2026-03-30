@@ -285,6 +285,8 @@ html{scrollbar-gutter:stable}
 /* Surveys page */
 .surveys-page .mission-card p{text-align:left}
 .surveys-subhead{margin-top:0}
+.surveys-intro{grid-column:1/-1;max-width:52rem;justify-self:center;text-align:center;padding:0 clamp(1rem,4vw,2rem)}
+.surveys-intro p{margin:.5rem 0 0;color:var(--muted);font-size:clamp(1rem,2.2vw,1.15rem)}
 .surveys-panel{display:grid;gap:1rem}
 .surveys-panel-head{display:grid;gap:.35rem}
 .surveys-panel-note{margin:0;color:var(--muted)}
