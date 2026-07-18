@@ -292,5 +292,4 @@ h3 { margin-bottom: 12px; font-size: clamp(1.25rem, 2vw, 1.65rem); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: 0.01ms !important; }
-  .hero__video { display: none; }
 }
