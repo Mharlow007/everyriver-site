@@ -280,6 +280,25 @@
     </section>
   </main>
 
+  <script>
+    (() => {
+      const video = document.querySelector('.hero__video');
+      if (!video) return;
+
+      video.muted = true;
+      const startVideo = () => {
+        const playback = video.play();
+        if (playback) playback.catch(() => {});
+      };
+
+      startVideo();
+      document.addEventListener('pointerdown', startVideo, { once: true });
+      document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) startVideo();
+      });
+    })();
+  </script>
+
   <footer class="site-footer">
     <div class="container site-footer__inner">
       <a class="brand brand--footer" href="index.html">
