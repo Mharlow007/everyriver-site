@@ -3,237 +3,296 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EveryRiver — Preview Home</title>
-  <link rel="stylesheet" href="assets/css/preview.css?v=20260330-2" />
+  <title>EveryRiver — An atlas and guide to rivers anywhere in the world</title>
+  <meta name="description" content="EveryRiver is the free, community-built atlas and guide to rivers anywhere in the world." />
+  <meta name="theme-color" content="#192841" />
+  <link rel="canonical" href="https://www.every-river.org/" />
+  <link rel="icon" href="assets/images/raster/boat_button.png" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&display=swap" />
+  <link rel="stylesheet" href="assets/css/site.css?v=20260718-2" />
 </head>
 <body>
-  <main class="hero-full hero-bg" aria-label="Hero">
-    <div class="hero-overlay">
-      <div class="hero-brand">
-        <img src="assets/images/raster/boat_logo.png" alt="EveryRiver boat logo" />
-        <span class="hero-brand-name">EveryRiver</span>
-      </div>
-      <div class="hero-phrases" aria-label="EveryRiver vision statements">
-        <span class="tagline">A living atlas and guide to rivers<br><br>For the love of rivers everywhere</span>
-        <a href="follow.html" class="nav-pill nav-pill--stay" aria-label="Get the newsletter">Get the newsletter</a>
-      </div>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
-      <section class="mission-topics" aria-label="Mission focus areas">
-        <h3 class="topic-pill visiting">Visiting</h3>
-        <h3 class="topic-pill boating">Boating</h3>
-        <h3 class="topic-pill watersports">Watersports</h3>
-        <h3 class="topic-pill nature">Nature</h3>
-        <h3 class="topic-pill culture">Culture</h3>
-      </section>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="index.html" aria-label="EveryRiver home">
+        <img src="assets/images/raster/boat_logo.png" alt="" />
+        <span>EveryRiver</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="#atlas-guide">Atlas and guide</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="about.html">About</a>
+        <a class="button button--light" href="follow.html">Get updates</a>
+      </nav>
     </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero section-dark" aria-labelledby="hero-title">
+      <video class="hero__video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+        <source src="assets/video/river-hero-h264.mp4" type="video/mp4" />
+      </video>
+      <div class="hero__scrim" aria-hidden="true"></div>
+      <div class="river-lines" aria-hidden="true">
+        <svg viewBox="0 0 1000 700" preserveAspectRatio="none">
+          <path d="M-80 50 C180 210 140 360 390 330 S620 130 1080 270" />
+          <path d="M-80 350 C180 500 320 440 440 560 S770 690 1080 500" />
+          <path d="M230 -80 C340 130 580 120 560 330 S480 590 650 780" />
+        </svg>
+      </div>
+      <div class="container hero__inner">
+        <div class="hero__copy">
+          <p class="eyebrow">An atlas and guide to rivers anywhere in the world</p>
+          <h1 id="hero-title">See the whole river.</h1>
+          <p class="hero__lede">Discover the places, wildlife, history, watersports, boating and live river conditions that make every river and canal a delight.</p>
+          <p class="hero__location">Starting in Britain. Built for rivers anywhere in the world.</p>
+          <a class="button" href="follow.html">Get updates</a>
+        </div>
+
+        <div class="hero__proof" aria-label="Current EveryRiver scale">
+          <span class="hero__proof-prefix">Already</span>
+          <strong>1 million+</strong>
+          <span class="hero__proof-copy">active atlas features across nearly 34,000 rivers and canals</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-cycle" aria-labelledby="cycle-title">
+      <div class="container split-intro">
+        <div>
+          <p class="eyebrow eyebrow--dark">Why an atlas and guide?</p>
+          <h2 id="cycle-title">Rivers and canals are wonderful places to be.</h2>
+        </div>
+        <p class="section-lede">We believe the more you understand them, the more you can enjoy them. That leads to a deeper care for them and a thirst for more knowledge.</p>
+      </div>
+
+      <div class="container cycle-wrap">
+        <div class="cycle-diagram" aria-hidden="true">
+          <svg class="cycle-diagram__arrows" viewBox="0 0 500 500">
+            <defs>
+              <marker id="cycle-arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+                <path d="M0,0 L8,4 L0,8 Z" />
+              </marker>
+            </defs>
+            <path d="M285 72 A185 185 0 0 1 428 215" />
+            <path d="M428 285 A185 185 0 0 1 285 428" />
+            <path d="M215 428 A185 185 0 0 1 72 285" />
+            <path d="M72 215 A185 185 0 0 1 215 72" />
+          </svg>
+          <div class="cycle-node cycle-node--understand">Understand<br />rivers</div>
+          <div class="cycle-node cycle-node--enjoy">Enjoy</div>
+          <div class="cycle-node cycle-node--care">Care</div>
+          <div class="cycle-node cycle-node--contribute">Contribute</div>
+        </div>
+      </div>
+    </section>
+
+    <figure class="love-banner">
+      <img src="assets/images/raster/hero.jpg" alt="A broad river flowing beneath a stone bridge in warm evening light" />
+      <div class="container love-banner__inner">
+        <p>For the love of rivers everywhere</p>
+      </div>
+    </figure>
+
+    <!-- Future demonstration film slot. It stays absent from the rendered page until completed. -->
+    <section class="section section-film" data-media-slot="demonstration-video" hidden aria-labelledby="film-title">
+      <div class="container">
+        <p class="eyebrow eyebrow--dark">See EveryRiver in action</p>
+        <h2 id="film-title">Follow a river from source to sea.</h2>
+        <div class="video-shell"><!-- Add privacy-enhanced YouTube embed here. --></div>
+        <p class="media-caption"><!-- Add caption, transcript link and credit here. --></p>
+      </div>
+    </section>
+
+    <section class="section section-cream" id="atlas-guide" aria-labelledby="atlas-title">
+      <div class="container split-intro">
+        <div>
+          <p class="eyebrow eyebrow--dark">Atlas and guide</p>
+          <h2 id="atlas-title">One river. The whole story.</h2>
+        </div>
+        <p class="section-lede">EveryRiver brings fragmented knowledge together to tell the whole story of a river or canal. It combines information from public authorities with community knowledge and guidance. It is designed for laptop, PC and mobile phones.</p>
+      </div>
+
+      <div class="container atlas-grid">
+        <article class="atlas-card atlas-card--geography" data-media-slot="screenshot-explore">
+          <span class="atlas-card__number">01</span>
+          <h3>Places and landscapes</h3>
+          <p>Follow the river and discover its origins in the hills and ground beneath you. Float through the natural beauty of its landscapes. See the power and character of the river change as it is fed by its tributaries.</p>
+        </article>
+        <article class="atlas-card atlas-card--nature" data-media-slot="screenshot-nature">
+          <span class="atlas-card__number">02</span>
+          <h3>Wildlife and habitats</h3>
+          <p>Explore species, habitats and nature observations connected to each stretch of river.</p>
+        </article>
+        <article class="atlas-card atlas-card--heritage" data-media-slot="screenshot-history">
+          <span class="atlas-card__number">03</span>
+          <h3>History and culture</h3>
+          <p>Understand how our lives, buildings, events and language have been shaped by the water.</p>
+        </article>
+        <article class="atlas-card atlas-card--visiting" data-media-slot="screenshot-access">
+          <span class="atlas-card__number">04</span>
+          <h3>Access and enjoyment</h3>
+          <p>Give and receive guidance on walking, paddling, boating, swimming, fishing and just idly spending time by the river.</p>
+        </article>
+        <article class="atlas-card atlas-card--water" data-media-slot="screenshot-live">
+          <span class="atlas-card__number">05</span>
+          <h3>Live conditions</h3>
+          <p>See river levels, flows, rainfall, tides, weather, water quality and other changing conditions.</p>
+        </article>
+        <article class="atlas-card atlas-card--boating" data-media-slot="screenshot-sources">
+          <span class="atlas-card__number">06</span>
+          <h3>Sources and shared knowledge</h3>
+          <p>Learn more about rivers and canals and give others the benefit of your knowledge. Add your favourite books, explain how things work, verify, update, challenge and edit, for the benefit of future generations.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section stats section-dark" aria-labelledby="scale-title">
+      <div class="container">
+        <div class="stats__intro"><h2 id="scale-title">Already taking shape.</h2></div>
+        <dl class="stats__grid">
+          <div><dt>1 million+</dt><dd>active atlas features</dd></div>
+          <div><dt>33,578</dt><dd>rivers</dd></div>
+          <div><dt>408</dt><dd>canals</dd></div>
+          <div><dt>123</dt><dd>active datasets</dd></div>
+        </dl>
+        <div class="providers">
+          <p><strong>Including data provided or published by:</strong></p>
+          <ul>
+            <li>Anglian Water</li>
+            <li>British Geological Survey</li>
+            <li>Canal &amp; River Trust</li>
+            <li>Dwr Cymru Welsh Water</li>
+            <li>Environment Agency</li>
+            <li>Esri</li>
+            <li>EveryRiver Atlas Limited</li>
+            <li>Hafren Dyfrdwy</li>
+            <li>Historic England</li>
+            <li>Historic Environment Scotland</li>
+            <li>Joint Nature Conservation Committee</li>
+            <li>Met Office</li>
+            <li>National Historic Ships UK</li>
+            <li>Natural England</li>
+            <li>Natural Resources Wales</li>
+            <li>Northumbrian Water</li>
+            <li>Ordnance Survey</li>
+            <li>Scottish Environment Protection Agency</li>
+            <li>Scottish Water</li>
+            <li>Severn Trent Water</li>
+            <li>South West Water</li>
+            <li>Southern Water</li>
+            <li>Thames Water</li>
+            <li>UK Hydrographic Office</li>
+            <li>United Utilities</li>
+            <li>Wessex Water</li>
+            <li>Yorkshire Water</li>
+          </ul>
+        </div>
+        <p class="stats__note">Figures checked July 2026.</p>
+      </div>
+    </section>
+
+    <section class="section knowledge" aria-labelledby="knowledge-title">
+      <div class="container knowledge__grid">
+        <div>
+          <p class="eyebrow eyebrow--dark">Knowledge connected</p>
+          <h2 id="knowledge-title">Bringing the fragments together.</h2>
+          <p class="section-lede">River and canal knowledge is scattered across maps, datasets, encyclopaedias, field observations and local experience. EveryRiver brings them to you as one, so you can easily understand and enjoy them more.</p>
+        </div>
+        <div class="source-panel">
+          <p>Information from <strong>Wikipedia</strong>, <strong>Wiktionary</strong> and <strong>iNaturalist</strong> is included within the atlas and guide.</p>
+          <p>Sources and provenance remain visible, so knowledge can be checked, understood and improved.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-community section-dark" aria-labelledby="community-title">
+      <div class="container">
+        <div class="community__intro">
+          <h2 id="community-title">Help us build the world’s greatest river atlas and guide.</h2>
+          <p class="section-lede section-lede--light">EveryRiver is not a finished atlas being prepared behind closed doors. It is a library that will grow through the knowledge, experience and creativity of its community.</p>
+        </div>
+
+        <ul class="contribution-list" aria-label="Future ways to contribute">
+          <li>New atlas features</li>
+          <li>Guidance</li>
+          <li>Nature observations</li>
+          <li>History</li>
+          <li>Immersive sounds and videos</li>
+          <li>Photographs</li>
+          <li>River place names</li>
+          <li>Glossary entries</li>
+          <li>Sources</li>
+        </ul>
+
+        <div class="community__action">
+          <p>Sign up for updates and information about how to get involved.</p>
+          <a class="button" href="follow.html">Get updates</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-cream principles" aria-labelledby="principles-title">
+      <div class="container">
+        <div class="split-intro">
+          <div>
+            <p class="eyebrow eyebrow--dark">Created for public benefit</p>
+            <h2 id="principles-title">Knowledge people can trust.</h2>
+          </div>
+          <p class="section-lede">EveryRiver will be a permanent, open, objective and independent source of information.</p>
+        </div>
+        <div class="principles__grid">
+          <article><h3>Not for profit</h3><p>EveryRiver is constitutionally not for profit and exists solely for public benefit.</p></article>
+          <article><h3>Always free</h3><p>Our information will always be free.</p></article>
+          <article><h3>Supported by donations</h3><p>EveryRiver will be funded by private donations, not commercial income.</p></article>
+          <article><h3>Open by design</h3><p>Information created by EveryRiver will be open data, following FAIR principles.</p></article>
+        </div>
+        <p class="principles__link"><a href="about.html#constitution">Read our constitutional commitments and approach to open data</a></p>
+      </div>
+    </section>
+
+    <section class="section roadmap" id="roadmap" aria-labelledby="roadmap-title">
+      <div class="container roadmap__grid">
+        <div>
+          <p class="eyebrow eyebrow--dark">Roadmap</p>
+          <h2 id="roadmap-title">Testing now. Public later this year.</h2>
+          <p class="section-lede">Private testing is invitation only and places are limited. The newsletter is the best way to follow progress and hear how to get involved.</p>
+        </div>
+        <ol class="timeline">
+          <li><span>Summer 2026</span><strong>Invitation-only testing</strong><p>Testing the atlas and guide with a small group.</p></li>
+          <li><span>Autumn 2026</span><strong>Refine and prepare</strong><p>Improving the experience, knowledge and contribution tools.</p></li>
+          <li><span>Later in 2026</span><strong>Public launch</strong><p>Opening EveryRiver more widely.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section newsletter section-dark" aria-labelledby="newsletter-title">
+      <div class="container newsletter__inner">
+        <div>
+          <p class="eyebrow">Follow the journey</p>
+          <h2 id="newsletter-title">Get EveryRiver updates.</h2>
+          <p>Development news, launch updates and information about how you can help build the atlas and guide.</p>
+        </div>
+        <a class="button" href="follow.html">Get updates</a>
+      </div>
+    </section>
   </main>
 
-  <main class="mission-content" id="mission" aria-labelledby="mission-stories-heading">
-    <section class="section mission-card wide mission-card--intro">
-      <div class="mission-body">
-        <p>We believe the more you know a river, the more you love it.</p>
-        <p>People come to rivers for all sorts of reasons - to walk, paddle, fish, boat, swim, feed ducks or feed themselves, all with a beautiful view.</p>
-        <p>The more we understand the river, the more we can access it, enjoy it, care for it and have more fun. And from that greater enjoyment comes a deeper curiosity.</p>
-        <p></p>
-        <p>EveryRiver is a not-for-profit organisation that has the wild ambition of creating a living atlas and guide for every river everywhere. We think that would be just amazing. We hope you do too.</p>
-      </div>
-    </section>
-
-    <section class="section mission-card">
-      <h3 class="mission-subhead">Atlas and Guide</h3>
-      <p>We are developing an open, rich and permanent source of river information in an app and website. Below are some sample screenshots of the real work-in-progress. But it is very early days and this will be wrong now and much improved later. This is the coat-rail on which you will be able to hang your stories, of your river, with your photos and your information.</p>
-      <p><a class="nav-pill" href="follow.html">Get the newsletter</a></p>
-    </section>
-
-    <section class="section mission-card">
-      <h3 class="mission-subhead" id="mission-stories-heading">Telling Stories</h3>
-      <p>We are aiming to have daily new content on rivers from March 2026.</p>
-      <p>We will cover watersports, boating, nature, history, pollution, river conditions, geography, hydrology, how to visit, how to access, where to stay or eat with a river view, navigation rules, river conditions, rainfall, aquifer levels, historic river buildings, flow rates, events, locks, route planning, canoe/paddleboard trails, tides, the sheer beauty of a river or canal landscape and so much more.</p>
-      <p>Please <a href="follow.html">get the newsletter</a> to keep in touch with what we are learning and doing. We will need your feedback to create something of greatest worth to you.</p>
-      <p><a class="nav-pill" href="surveys.html">Weekly walk surveys</a></p>
-    </section>
-    <section class="mission-carousel" aria-label="River related screenshots">
-      <div class="carousel" aria-live="polite">
-        <button class="carousel-btn prev" aria-label="Previous image" type="button">‹</button>
-        <ul class="carousel-track" tabindex="0">
-          <!-- Original set (will be shuffled) -->
-          <li class="slide" aria-current="true"><img loading="lazy" src="assets/images/raster/Screenshot 2025-11-28 184545.jpg" alt="Screenshot 184545" /></li>
-          <li class="slide"><img loading="lazy" src="assets/images/raster/Screenshot 2025-11-28 184754.jpg" alt="Screenshot 184754" /></li>
-          <li class="slide"><img loading="lazy" src="assets/images/raster/Screenshot 2025-11-28 185324.jpg" alt="Screenshot 185324" /></li>
-          <li class="slide"><img loading="lazy" src="assets/images/raster/Screenshot 2025-11-28 185454.jpg" alt="Screenshot 185454" /></li>
-          <li class="slide"><img loading="lazy" src="assets/images/raster/Screenshot 2025-11-28 185532.jpg" alt="Screenshot 185532" /></li>
-          <li class="slide"><img loading="lazy" src="assets/images/raster/Screenshot 2025-11-28 185548.jpg" alt="Screenshot 185548" /></li>
-          <li class="slide"><img loading="lazy" src="assets/images/raster/Screenshot 2025-11-28 185808.jpg" alt="Screenshot 185808" /></li>
-          <li class="slide"><img loading="lazy" src="assets/images/raster/Screenshot 2025-11-28 190413.jpg" alt="Screenshot 190413" /></li>
-          <li class="slide"><img loading="lazy" src="assets/images/raster/Screenshot 2025-11-28 190442.jpg" alt="Screenshot 190442" /></li>
-          <li class="slide"><img loading="lazy" src="assets/images/raster/Screenshot 2025-11-28 194657.jpg" alt="Screenshot 194657" /></li>
-          <li class="slide"><img loading="lazy" src="assets/images/raster/Screenshot 2025-11-28 194853.jpg" alt="Screenshot 194853" /></li>
-          <li class="slide"><img loading="lazy" src="assets/images/raster/Screenshot 2025-11-28 195008.jpg" alt="Screenshot 195008" /></li>
-          <li class="slide"><img loading="lazy" src="assets/images/raster/Screenshot 2025-11-28 195132.jpg" alt="Screenshot 195132" /></li>
-          <li class="slide"><img loading="lazy" src="assets/images/raster/Screenshot 2025-11-28 195255.jpg" alt="Screenshot 195255" /></li>
-          <li class="slide"><img loading="lazy" src="assets/images/raster/Screenshot 2025-11-28 195312.jpg" alt="Screenshot 195312" /></li>
-          <!-- New 2025-11-30 additions -->
-          <li class="slide"><img loading="lazy" src="assets/images/raster/Screenshot 2025-11-30 193458.jpg" alt="Screenshot 193458" /></li>
-          <li class="slide"><img loading="lazy" src="assets/images/raster/Screenshot 2025-11-30 195323.jpg" alt="Screenshot 195323" /></li>
-          <li class="slide"><img loading="lazy" src="assets/images/raster/Screenshot 2025-11-30 195744.jpg" alt="Screenshot 195744" /></li>
-          <li class="slide"><img loading="lazy" src="assets/images/raster/Screenshot 2025-11-30 200046.jpg" alt="Screenshot 200046" /></li>
-          <li class="slide"><img loading="lazy" src="assets/images/raster/Screenshot 2025-11-30 200136.jpg" alt="Screenshot 200136" /></li>
-          <li class="slide"><img loading="lazy" src="assets/images/raster/Screenshot 2025-11-30 200152.jpg" alt="Screenshot 200152" /></li>
-          <li class="slide"><img loading="lazy" src="assets/images/raster/Screenshot 2025-11-30 200208.jpg" alt="Screenshot 200208" /></li>
-          <li class="slide"><img loading="lazy" src="assets/images/raster/Screenshot 2025-11-30 200232.jpg" alt="Screenshot 200232" /></li>
-          <li class="slide"><img loading="lazy" src="assets/images/raster/Screenshot 2025-11-30 200848.jpg" alt="Screenshot 200848" /></li>
-          <li class="slide"><img loading="lazy" src="assets/images/raster/Screenshot 2025-11-30 201448.jpg" alt="Screenshot 201448" /></li>
-          <!-- New 2025-12-19 addition -->
-          <li class="slide"><img loading="lazy" src="assets/images/raster/Screenshot 2025-12-19 062832.jpg" alt="Screenshot 062832" /></li>
-        </ul>
-        <button class="carousel-btn next" aria-label="Next image" type="button">›</button>
-      </div>
-    </section>
-
-    <section class="mission-carousel mission-carousel--videos" aria-label="River Thames walk videos">
-      <div class="video-carousel-heading-wrap">
-        <h3 class="video-carousel-heading">Follow Mike as he tests how the Atlas and Guide will work by walking from the River Thames source to the sea.</h3>
-      </div>
-      <div class="carousel carousel--youtube" aria-live="polite" data-youtube-carousel>
-        <button class="carousel-btn prev" aria-label="Previous video" type="button">‹</button>
-        <ul class="carousel-track" tabindex="0">
-          <li class="slide" aria-current="true">
-            <div class="youtube-carousel-empty" role="status">Loading videos…</div>
-          </li>
-        </ul>
-        <button class="carousel-btn next" aria-label="Next video" type="button">›</button>
-      </div>
-    </section>
-
-    <p class="site-credit"><a href="about.html">© EveryRiver Atlas Limited</a></p>
-  </main>
-
-  <nav class="bottom-nav" aria-label="Primary">
-    <a href="index.html" class="active" aria-label="Home">
-      <img src="assets/images/svg/home-svgrepo-com.svg" alt="" class="nav-icon" />
-    </a>
-    <a href="follow.html" class="nav-pill" aria-label="Get the newsletter">Get the newsletter</a>
-    <a href="surveys.html" class="nav-pill" aria-label="Feedback">Feedback</a>
-    <a href="about.html" aria-label="About Us">
-      <img src="assets/images/raster/boat_button.png" alt="EveryRiver logo" class="nav-icon nav-logo" />
-    </a>
-  </nav>
-
-  <script src="assets/js/youtube-videos.js?v=20260330-1" defer></script>
-  <script src="assets/js/youtube-carousel.js?v=20260320-6" defer></script>
-
-  <script>
-  // Accessible fade carousel with robust dynamic height & resize/swipe support
-  (function(){
-    const root=document.querySelector('.mission-carousel .carousel');
-    if(!root) return;
-    const track=root.querySelector('.carousel-track');
-    const slides=[...track.children];
-    // Shuffle slides to present in random order each load (Fisher-Yates)
-    (function shuffle(){
-      for(let i=slides.length-1;i>0;i--){
-        const j=Math.floor(Math.random()*(i+1));
-        if(i!==j){
-          // swap in DOM
-          const nodeI=slides[i];
-          const nodeJ=slides[j];
-          const nextI=nodeI.nextSibling;
-          track.insertBefore(nodeI,nodeJ);
-          track.insertBefore(nodeJ,nextI);
-          [slides[i],slides[j]]=[slides[j],slides[i]];
-        }
-      }
-      // Reset current marker to first after shuffle
-      slides.forEach(s=>s.removeAttribute('aria-current'));
-      slides[0].setAttribute('aria-current','true');
-    })();
-    const prev=root.querySelector('.carousel-btn.prev');
-    const next=root.querySelector('.carousel-btn.next');
-    let index=slides.findIndex(s=>s.hasAttribute('aria-current')); if(index<0) index=0;
-
-    function setActive(i){
-      if(i===index) return;
-      slides[index].removeAttribute('aria-current');
-      slides[i].setAttribute('aria-current','true');
-      index=i;
-      adjustHeight();
-    }
-
-    function adjustHeight(){
-      const slide=slides[index];
-      const img=slide.querySelector('img');
-      if(!img) return;
-      // In fullscreen modes, let CSS own the container height (so we can keep
-      // a full-viewport backdrop while the image sizes itself proportionally).
-      if(root.matches(':fullscreen') || root.classList.contains('carousel-faux-fullscreen')){
-        root.style.height='';
-        return;
-      }
-      if(img.complete){
-        root.style.height=img.offsetHeight+ 'px';
-      }
-    }
-
-    function go(dir){
-      setActive( (index + dir + slides.length) % slides.length );
-    }
-
-    prev.addEventListener('click',()=>go(-1));
-    next.addEventListener('click',()=>go(1));
-    track.addEventListener('keydown',e=>{ if(e.key==='ArrowLeft'){go(-1)} else if(e.key==='ArrowRight'){go(1)} });
-
-    // Swipe (horizontal threshold)
-    let sx=0,dx=0; track.addEventListener('touchstart',e=>{sx=e.touches[0].clientX; dx=0});
-    track.addEventListener('touchmove',e=>{dx=e.touches[0].clientX - sx});
-    track.addEventListener('touchend',()=>{ if(Math.abs(dx)>45){ go(dx>0?-1:1) } });
-
-    // Height & orientation changes
-    window.addEventListener('resize',adjustHeight);
-
-    // Observe image size changes (e.g., responsive layout shifts)
-    const ro=new ResizeObserver(()=>{ adjustHeight(); });
-    slides.forEach(slide=>{ const img=slide.querySelector('img'); if(img){ img.addEventListener('load',adjustHeight); ro.observe(img); } });
-
-    adjustHeight();
-
-    // Fullscreen on image click / double-tap
-    let lastTap=0;
-    slides.forEach(slide=>{
-      const img=slide.querySelector('img');
-      if(!img) return;
-      img.style.cursor='zoom-in';
-      img.addEventListener('click',()=>{
-        const now=Date.now();
-        const isDouble=now - lastTap < 350; // double-tap window
-        lastTap=now;
-        const target=root; // fullscreen the carousel container
-        if(document.fullscreenElement || document.webkitFullscreenElement){
-          if(document.exitFullscreen){document.exitFullscreen();}
-          else if(document.webkitExitFullscreen){document.webkitExitFullscreen();}
-          else{target.classList.remove('carousel-faux-fullscreen');}
-          return;
-        }
-        function tryNativeFullscreen(){
-          if(target.requestFullscreen){target.requestFullscreen();return true;}
-          if(target.webkitRequestFullscreen){target.webkitRequestFullscreen();return true;}
-          return false;
-        }
-        const wantFullscreen = true; // both single and double tap toggle
-        if(wantFullscreen){
-          if(!tryNativeFullscreen()){
-            // Fallback for iOS Safari: simulate fullscreen via class
-            target.classList.add('carousel-faux-fullscreen');
-          }
-        }
-      });
-    });
-    // Exit faux fullscreen on Escape key
-    document.addEventListener('keydown',e=>{ if(e.key==='Escape'){ root.classList.remove('carousel-faux-fullscreen'); } });
-    // Sync height after native fullscreen changes
-    ['fullscreenchange','webkitfullscreenchange'].forEach(evt=>{
-      document.addEventListener(evt,()=>{ adjustHeight(); });
-    });
-  })();
-  </script>
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <a class="brand brand--footer" href="index.html">
+        <img src="assets/images/raster/boat_logo.png" alt="" />
+        <span>EveryRiver</span>
+      </a>
+      <p>© EveryRiver Atlas Limited</p>
+      <nav aria-label="Footer navigation">
+        <a href="about.html">About</a>
+        <a href="about.html#privacy">Privacy</a>
+        <a href="follow.html">Get updates</a>
+      </nav>
+    </div>
+  </footer>
 </body>
 </html>

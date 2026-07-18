@@ -3,236 +3,94 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EveryRiver — Follow</title>
-  <link rel="stylesheet" href="assets/css/preview.css?v=20260330-2" />
-  <style type="text/css">@import url("https://assets.mlcdn.com/fonts.css?version=1765458");</style>
-  <style type="text/css">
-  /* LOADER */
-  .ml-form-embedSubmitLoad {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-  }
-
-  .g-recaptcha {
-    transform: scale(1);
-    -webkit-transform: scale(1);
-    transform-origin: 0 0;
-    -webkit-transform-origin: 0 0;
-  }
-
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0,0,0,0);
-    border: 0;
-  }
-
-  .ml-form-embedSubmitLoad:after {
-    content: " ";
-    display: block;
-    width: 11px;
-    height: 11px;
-    margin: 1px;
-    border-radius: 50%;
-    border: 4px solid #fff;
-    border-color: #ffffff #ffffff #ffffff transparent;
-    animation: ml-form-embedSubmitLoad 1.2s linear infinite;
-  }
-  @keyframes ml-form-embedSubmitLoad {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-  #mlb2-34708177.ml-form-embedContainer {
-    box-sizing: border-box;
-    display: table;
-    margin: 0 auto;
-    position: static;
-    width: 100% !important;
-  }
-  #mlb2-34708177.ml-form-embedContainer h4,
-  #mlb2-34708177.ml-form-embedContainer p,
-  #mlb2-34708177.ml-form-embedContainer span,
-  #mlb2-34708177.ml-form-embedContainer button {
-    text-transform: none !important;
-    letter-spacing: normal !important;
-  }
-  #mlb2-34708177.ml-form-embedContainer .ml-form-embedWrapper {
-    background-color: #0b1a2f;
-    border-width: 0px;
-    border-color: transparent;
-    border-radius: 4px;
-    border-style: solid;
-    box-sizing: border-box;
-    display: inline-block !important;
-    margin: 0;
-    padding: 0;
-    position: relative;
-  }
-  #mlb2-34708177.ml-form-embedContainer .ml-form-embedWrapper.embedPopup,
-  #mlb2-34708177.ml-form-embedContainer .ml-form-embedWrapper.embedDefault { width: 400px; }
-  #mlb2-34708177.ml-form-embedContainer .ml-form-embedWrapper.embedForm { max-width: 400px; width: 100%; }
-  #mlb2-34708177.ml-form-embedContainer .ml-form-align-left { text-align: left; }
-  #mlb2-34708177.ml-form-embedContainer .ml-form-align-center { text-align: center; }
-  #mlb2-34708177.ml-form-embedContainer .ml-form-align-default { display: table-cell !important; vertical-align: middle !important; text-align: center !important; }
-  #mlb2-34708177.ml-form-embedContainer .ml-form-align-right { text-align: right; }
-  #mlb2-34708177.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody,
-  #mlb2-34708177.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody {
-    padding: 20px 20px 0 20px;
-  }
-  #mlb2-34708177.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent,
-  #mlb2-34708177.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent {
-    text-align: left;
-    margin: 0 0 20px 0;
-  }
-  #mlb2-34708177.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent h4,
-  #mlb2-34708177.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent h4 {
-    color: #ffffff;
-    font-family: 'Roboto', Arial, Helvetica, sans-serif;
-    font-size: 30px;
-    font-weight: 400;
-    margin: 0 0 10px 0;
-    text-align: left;
-    word-break: break-word;
-  }
-  #mlb2-34708177.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent p,
-  #mlb2-34708177.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent p {
-    color: #ffffff;
-    font-family: 'Roboto', Arial, Helvetica, sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 20px;
-    margin: 0 0 10px 0;
-    text-align: left;
-  }
-  #mlb2-34708177.ml-form-embedContainer .ml-form-embedWrapper .ml-block-form .ml-field-group { text-align: left!important; }
-  #mlb2-34708177.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody form { margin: 0; width: 100%; }
-  #mlb2-34708177.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-formContent { margin: 0 0 20px 0; width: 100%; }
-  #mlb2-34708177.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow { margin: 0 0 10px 0; width: 100%; }
-  #mlb2-34708177.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow.ml-last-item { margin: 0; }
-  #mlb2-34708177.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow input {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-    border-color: #cccccc;
-    border-radius: 4px !important;
-    border-style: solid !important;
-    border-width: 1px !important;
-    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
-    font-size: 14px !important;
-    line-height: 21px !important;
-    padding: 10px 10px !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-    max-width: 100% !important;
-  }
-  #mlb2-34708177.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit { margin: 0 0 20px 0; float: left; width: 100%; }
-  #mlb2-34708177.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit button {
-    background-color: #000000 !important;
-    border: none !important;
-    border-radius: 4px !important;
-    box-shadow: none !important;
-    color: #ffffff !important;
-    cursor: pointer;
-    font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
-    font-size: 14px !important;
-    font-weight: 700 !important;
-    line-height: 21px !important;
-    padding: 10px !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-  }
-  #mlb2-34708177.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit button:hover {
-    background-color: #333333 !important;
-  }
-  @media only screen and (max-width: 400px){
-    .ml-form-embedWrapper.embedDefault, .ml-form-embedWrapper.embedPopup { width: 100%!important; }
-  }
-  </style>
+  <title>Get EveryRiver updates</title>
+  <meta name="description" content="Get development news, launch updates and information about how to help build EveryRiver." />
+  <meta name="theme-color" content="#192841" />
+  <link rel="canonical" href="https://www.every-river.org/follow.html" />
+  <link rel="icon" href="assets/images/raster/boat_button.png" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&display=swap" />
+  <link rel="stylesheet" href="assets/css/site.css?v=20260718-2" />
 </head>
-<body class="mission-page follow-page">
-  <header class="mission-lead">
-    <div class="brand-mark" aria-label="EveryRiver">
-      <img src="assets/images/raster/boat_logo.png" alt="EveryRiver boat logo" />
-      <span class="brand-name">EveryRiver</span>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="index.html" aria-label="EveryRiver home">
+        <img src="assets/images/raster/boat_logo.png" alt="" />
+        <span>EveryRiver</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="index.html#atlas-guide">Atlas and guide</a>
+        <a href="index.html#roadmap">Roadmap</a>
+        <a href="about.html">About</a>
+        <a class="button button--light" href="follow.html" aria-current="page">Get updates</a>
+      </nav>
     </div>
-    <p class="tagline">A living atlas and guide to rivers</p>
   </header>
 
-  <main class="mission-content" aria-label="Follow EveryRiver">
-    <section class="section mission-card wide">
-      <h3>Get the newsletter. This is the best way to help us with feedback on what you would like out of a river atlas and guide.</h3>
-      <div id="mlb2-34708177" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-34708177">
-        <div class="ml-form-align-center ">
-          <div class="ml-form-embedWrapper embedForm">
-            <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
-              <div class="ml-form-embedContent">
-                <p>Occasional updates as maps, data and stories come online.</p>
-                <p>No spam.&nbsp;Just rivers.&nbsp;<a href="about.html">Privacy notice</a></p>
-              </div>
+  <main id="main-content">
+    <header class="page-hero section-dark">
+      <div class="container">
+        <p class="eyebrow">Follow the journey</p>
+        <h1>Get EveryRiver updates.</h1>
+        <p>Development news, launch updates and information about how you can help build the world’s greatest river atlas and guide.</p>
+      </div>
+    </header>
 
-              <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/1984788/forms/173957493905426043/subscribe" data-code="" method="post" target="_blank">
-                <div class="ml-form-formContent">
-                  <div class="ml-form-fieldRow ml-last-item">
-                    <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
-                      <input aria-label="email" aria-required="true" type="email" class="form-control" data-inputmask="" name="fields[email]" placeholder="Email" autocomplete="email">
-                    </div>
-                  </div>
-                </div>
+    <section class="section" aria-labelledby="signup-heading">
+      <div class="container signup-layout">
+        <div>
+          <p class="eyebrow eyebrow--dark">What happens next</p>
+          <h2 id="signup-heading">Testing this summer and autumn.</h2>
+          <p class="section-lede">Private testing is invitation only and places are limited. We expect to launch publicly later in 2026.</p>
+          <p>Sign up for occasional updates and information about how to get involved. No spam. Just rivers.</p>
+        </div>
 
-                <input type="hidden" name="ml-submit" value="1">
-
-                <div class="ml-form-embedSubmit">
-                  <button type="submit" class="primary">Subscribe to the newsletter</button>
-                  <button disabled="disabled" style="display: none;" type="button" class="loading">
-                    <div class="ml-form-embedSubmitLoad"></div>
-                    <span class="sr-only">Loading...</span>
-                  </button>
-                </div>
-
-                <input type="hidden" name="anticsrf" value="true">
+        <div class="signup-panel" id="mlb2-34708177">
+          <div class="ml-subscribe-form ml-subscribe-form-34708177">
+            <div class="row-form">
+              <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/1984788/forms/173957493905426043/subscribe" method="post" target="_blank">
+                <label for="newsletter-email">Email address</label>
+                <input id="newsletter-email" aria-required="true" type="email" name="fields[email]" placeholder="you@example.com" autocomplete="email" required />
+                <input type="hidden" name="ml-submit" value="1" />
+                <button type="submit">Get updates</button>
+                <input type="hidden" name="anticsrf" value="true" />
               </form>
+              <p class="form-note">You can unsubscribe at any time. Read our <a href="about.html#privacy">privacy notice</a>.</p>
             </div>
-
             <div class="ml-form-successBody row-success" style="display: none">
-              <div class="ml-form-successContent">
-                <h4>Thank you and welcome</h4>
-                <p>We will only email when there is something worth sharing.&nbsp;</p>
-              </div>
+              <h3>Thank you and welcome.</h3>
+              <p>We will only email when there is something worth sharing.</p>
             </div>
           </div>
         </div>
       </div>
-
-      <script>
-        function ml_webform_success_34708177() {
-          var $ = ml_jQuery || jQuery;
-          $('.ml-subscribe-form-34708177 .row-success').show();
-          $('.ml-subscribe-form-34708177 .row-form').hide();
-        }
-      </script>
-
-      <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v176e10baa5e7ed80d35ae235be3d5024" type="text/javascript"></script>
-      <script>
-        fetch("https://assets.mailerlite.com/jsonp/1984788/forms/173957493905426043/takel");
-      </script>
     </section>
-
-    <p class="site-credit"><a href="about.html">© EveryRiver Atlas Limited</a></p>
   </main>
 
-  <nav class="bottom-nav" aria-label="Primary">
-    <a href="index.html" aria-label="Home">
-      <img src="assets/images/svg/home-svgrepo-com.svg" alt="" class="nav-icon" />
-    </a>
-    <a href="follow.html" class="nav-pill active" aria-label="Get the newsletter">Get the newsletter</a>
-    <a href="surveys.html" class="nav-pill" aria-label="Feedback">Feedback</a>
-    <a href="about.html" aria-label="About Us">
-      <img src="assets/images/raster/boat_button.png" alt="EveryRiver logo" class="nav-icon nav-logo" />
-    </a>
-  </nav>
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <a class="brand brand--footer" href="index.html">
+        <img src="assets/images/raster/boat_logo.png" alt="" />
+        <span>EveryRiver</span>
+      </a>
+      <p>© EveryRiver Atlas Limited</p>
+      <nav aria-label="Footer navigation">
+        <a href="about.html">About</a>
+        <a href="about.html#privacy">Privacy</a>
+        <a href="follow.html">Get updates</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    function ml_webform_success_34708177() {
+      var form = document.querySelector('.ml-subscribe-form-34708177 .row-form');
+      var success = document.querySelector('.ml-subscribe-form-34708177 .row-success');
+      if (form) form.style.display = 'none';
+      if (success) success.style.display = 'block';
+    }
+  </script>
+  <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v176e10baa5e7ed80d35ae235be3d5024"></script>
 </body>
 </html>
