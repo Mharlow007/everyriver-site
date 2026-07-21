@@ -244,6 +244,11 @@ h3 { margin-bottom: 12px; font-size: clamp(1.25rem, 2vw, 1.65rem); }
 .signup-panel button[type="submit"]:hover { background: var(--teal-dark); }
 .signup-panel .form-note { margin: 15px 0 0; color: var(--muted); font-size: 0.88rem; }
 .signup-panel .ml-form-successBody h3 { color: var(--ink); }
+.follow-hero-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(320px, 0.62fr); gap: clamp(48px, 8vw, 100px); align-items: center; }
+.follow-hero__copy p:not(.eyebrow) { max-width: 650px; color: #dbe7ef; font-size: 1.3rem; }
+.page-hero .signup-panel { color: var(--ink); }
+.page-hero .signup-panel .form-note { color: var(--muted); font-size: 0.88rem; }
+.follow-testing { max-width: 840px; }
 
 .not-found { min-height: calc(100vh - 84px); display: grid; place-items: center; text-align: center; }
 .not-found h1 { max-width: none; font-size: clamp(3rem, 9vw, 7rem); }
@@ -255,7 +260,8 @@ h3 { margin-bottom: 12px; font-size: clamp(1.25rem, 2vw, 1.65rem); }
 @media (max-width: 900px) {
   .site-header__inner { padding-block: 16px; align-items: flex-start; }
   .site-nav { justify-content: flex-end; flex-wrap: wrap; gap: 14px 20px; }
-  .split-intro, .knowledge__grid, .roadmap__grid, .signup-layout { grid-template-columns: 1fr; }
+  .split-intro, .knowledge__grid, .roadmap__grid, .signup-layout, .follow-hero-layout { grid-template-columns: 1fr; }
+  .follow-hero-layout .signup-panel { max-width: 560px; }
   .atlas-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .principles__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .site-footer__inner { grid-template-columns: 1fr auto; }
