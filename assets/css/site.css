@@ -256,9 +256,7 @@ h3 { margin-bottom: 12px; font-size: clamp(1.25rem, 2vw, 1.65rem); }
 
 .video-shell { width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: var(--navy-deep); border-radius: var(--radius-lg); box-shadow: var(--shadow-raised); }
 .video-shell iframe, .video-shell video { width: 100%; height: 100%; border: 0; }
-.media-caption { margin-top: 12px; color: var(--muted); font-size: 0.9rem; }
-
-@media (max-width: 900px) {
+.media-caption { margin-top: 12px; color: var(--muted); font-size: 0.9rem; }@media (max-width: 900px) {
   .site-header__inner { padding-block: 16px; align-items: flex-start; }
   .site-nav { justify-content: flex-end; flex-wrap: wrap; gap: 14px 20px; }
   .split-intro, .knowledge__grid, .roadmap__grid, .signup-layout, .follow-hero-layout { grid-template-columns: 1fr; }

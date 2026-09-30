@@ -59,6 +59,18 @@
       </div>
     </section>
 
+    <!-- Demonstration film, embedded through YouTube's privacy-enhanced domain. -->
+    <section class="section section-film" id="film" data-media-slot="demonstration-video" aria-labelledby="film-title">
+      <div class="container">
+        <p class="eyebrow eyebrow--dark">See EveryRiver in action</p>
+        <h2 id="film-title">An atlas and guide to rivers and canals.</h2>
+        <div class="video-shell">
+          <iframe src="https://www.youtube-nocookie.com/embed/bswgtiMFQeA?rel=0" title="EveryRiver – An Atlas and Guide to rivers and canals" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+        <p class="media-caption">EveryRiver – An Atlas and Guide to rivers and canals. Film by EveryRiver. <a href="https://www.youtube.com/watch?v=bswgtiMFQeA" rel="noopener">Watch on YouTube</a></p>
+      </div>
+    </section>
+
     <section class="section section-cycle" aria-labelledby="cycle-title">
       <div class="container split-intro">
         <div>
@@ -95,16 +107,6 @@
         <p>For the love of rivers everywhere</p>
       </div>
     </figure>
-
-    <!-- Future demonstration film slot. It stays absent from the rendered page until completed. -->
-    <section class="section section-film" data-media-slot="demonstration-video" hidden aria-labelledby="film-title">
-      <div class="container">
-        <p class="eyebrow eyebrow--dark">See EveryRiver in action</p>
-        <h2 id="film-title">Follow a river from source to sea.</h2>
-        <div class="video-shell"><!-- Add privacy-enhanced YouTube embed here. --></div>
-        <p class="media-caption"><!-- Add caption, transcript link and credit here. --></p>
-      </div>
-    </section>
 
     <section class="section section-cream" id="atlas-guide" aria-labelledby="atlas-title">
       <div class="container split-intro">
@@ -296,8 +298,7 @@
       document.addEventListener('visibilitychange', () => {
         if (!document.hidden) startVideo();
       });
-    })();
-  </script>
+    })();  </script>
 
   <footer class="site-footer">
     <div class="container site-footer__inner">

@@ -26,4 +26,4 @@ Shared public-site styles are in `assets/css/site.css`.
 
 Do not reveal an empty slot. Add product media only after its alternative text, caption, credit and permission details are complete.
 
-For YouTube, use the privacy-enhanced `youtube-nocookie.com` embed and load it only after the visitor chooses to play.
+For YouTube, use the privacy-enhanced `youtube-nocookie.com` embed. The demonstration film is embedded directly on the page so visitors see the player itself; the privacy notice's "Embedded video" section covers it.
