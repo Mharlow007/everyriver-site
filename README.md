@@ -19,11 +19,12 @@ The public site follows the development product’s shared grammar:
 
 Shared public-site styles are in `assets/css/site.css`.
 
-## Future product media
+## Product media
 
 - `demonstration-video`: 16:9 film, poster, caption and transcript
-- `screenshot-explore`, `screenshot-nature`, `screenshot-history`, `screenshot-access`, `screenshot-live`, `screenshot-sources`: product imagery within the atlas-and-guide sequence
+- `assets/images/screens/`: one real beta screen for each of the six interests the beta asks a first visitor about (Walks and days out, Boating, Watersports, Wildlife, History, Water and landscape). Captured from the beta's feature panel on 18 November 2026, 461 × 921 WebP.
+- `assets/images/svg/interests/`: the beta's own six interest icons, copied from `rivers/static/rivers/SVG/` in the website repository.
 
-Do not reveal an empty slot. Add product media only after its alternative text, caption, credit and permission details are complete.
+Do not reveal an empty slot. Add product media only after its alternative text, caption, credit and permission details are complete. A screen may show only photos that are public domain, CC0 or EveryRiver's own; iNaturalist photos are often non-commercial and are not used. Layer names on the page are exactly the beta layer menu's names.
 
 For YouTube, use the privacy-enhanced `youtube-nocookie.com` embed. The demonstration film is embedded directly on the page so visitors see the player itself; the privacy notice's "Embedded video" section covers it.

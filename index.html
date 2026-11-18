@@ -19,7 +19,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" href="assets/images/raster/boat_button.png" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&display=swap" />
-  <link rel="stylesheet" href="assets/css/site.css?v=20260809-1" />
+  <link rel="stylesheet" href="assets/css/site.css?v=20261118-1" />
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -58,13 +58,13 @@
           <h1 id="hero-title">See the whole river.</h1>
           <p class="hero__lede">Discover the places, wildlife, history, watersports, boating and live river conditions that make every river and canal a delight.</p>
           <p class="hero__location">Starting in Britain. Built for rivers anywhere in the world.</p>
-          <a class="button" href="follow.html">Get updates</a>
+          <a class="button" href="#first-40">Be one of the first 40</a>
         </div>
 
         <div class="hero__proof" aria-label="Current EveryRiver scale">
           <span class="hero__proof-prefix">Already</span>
-          <strong>1 million+</strong>
-          <span class="hero__proof-copy">active atlas features across nearly 34,000 rivers and canals</span>
+          <strong>1.5 million+</strong>
+          <span class="hero__proof-copy">active atlas features across more than 32,000 rivers and canals</span>
         </div>
       </div>
     </section>
@@ -122,59 +122,103 @@
       <div class="container split-intro">
         <div>
           <p class="eyebrow eyebrow--dark">Atlas and guide</p>
-          <h2 id="atlas-title">One river. The whole story.</h2>
+          <h2 id="atlas-title">What brings you to the river?</h2>
         </div>
-        <p class="section-lede">EveryRiver brings fragmented knowledge together to tell the whole story of a river or canal. It combines information from public authorities with community knowledge and guidance. It is designed for laptop, PC and mobile phones.</p>
+        <p class="section-lede">One river, the whole story. EveryRiver brings scattered knowledge together, from public authorities and from its community, and starts from what brings you to the water. It works on a laptop, a PC and a phone.</p>
       </div>
 
       <div class="container atlas-grid">
-        <article class="atlas-card atlas-card--geography" data-media-slot="screenshot-explore">
-          <span class="atlas-card__number">01</span>
-          <h3>Places and landscapes</h3>
-          <p>Follow the river and discover its origins in the hills and ground beneath you. Float through the natural beauty of its landscapes. See the power and character of the river change as it is fed by its tributaries.</p>
+        <article class="atlas-card atlas-card--visiting">
+          <span class="atlas-card__icon"><img src="assets/images/svg/interests/interest-walks.svg" alt="" /></span>
+          <h3>Walks and days out</h3>
+          <p>Find riverside paths, places to stop and the best views, and give and receive guidance on just idly spending time by the river.</p>
+          <ul class="atlas-card__layers" aria-label="Layers on the map">
+            <li>River Paths</li><li>Viewing Points</li><li>Riverside Food and Drink</li><li>Toilets</li>
+          </ul>
+          <figure class="atlas-card__screen">
+            <img src="assets/images/screens/walks-richmond-hill.webp" width="461" height="921" loading="lazy" alt="The EveryRiver panel for Richmond Hill, a viewing point on the River Thames: a photo of the view over Glover’s Island, and its view types, panorama, heritage view, boating view and urban riverscape." />
+            <figcaption>Richmond Hill, River Thames</figcaption>
+          </figure>
         </article>
-        <article class="atlas-card atlas-card--nature" data-media-slot="screenshot-nature">
-          <span class="atlas-card__number">02</span>
-          <h3>Wildlife and habitats</h3>
+        <article class="atlas-card atlas-card--boating">
+          <span class="atlas-card__icon"><img src="assets/images/svg/interests/interest-boating.svg" alt="" /></span>
+          <h3>Boating</h3>
+          <p>Plan a trip with locks, moorings and boating facilities, and see the closures and warnings the navigation authorities publish.</p>
+          <ul class="atlas-card__layers" aria-label="Layers on the map">
+            <li>Locks</li><li>Moorings</li><li>Boating Facilities</li><li>Closures and Warnings</li>
+          </ul>
+          <figure class="atlas-card__screen">
+            <img src="assets/images/screens/boating-teddington-lock.webp" width="461" height="921" loading="lazy" alt="The EveryRiver panel for Teddington Lock: drawings of the barge lock from above and from the side, 198 metres long, 7.5 metres wide, with a lift of 2.7 metres, a conventional single chamber with powered mitre gates." />
+            <figcaption>Teddington Lock, River Thames</figcaption>
+          </figure>
+        </article>
+        <article class="atlas-card atlas-card--sport">
+          <span class="atlas-card__icon"><img src="assets/images/svg/interests/interest-watersports.svg" alt="" /></span>
+          <h3>Watersports</h3>
+          <p>Find where to get on the water, where to swim, and the clubs and centres that can help you start.</p>
+          <ul class="atlas-card__layers" aria-label="Layers on the map">
+            <li>Watersport Facilities</li><li>Wild Swimming</li><li>Canoe etc Put-Ins</li><li>Slipways</li>
+          </ul>
+          <figure class="atlas-card__screen">
+            <img src="assets/images/screens/watersports-richmond-canoe-club.webp" width="461" height="921" loading="lazy" alt="The EveryRiver panel for Richmond Canoe Club: a photo of racks of canoes and kayaks in the boathouse, and its sport, canoe and kayak." />
+            <figcaption>Richmond Canoe Club, River Thames</figcaption>
+          </figure>
+        </article>
+        <article class="atlas-card atlas-card--nature">
+          <span class="atlas-card__icon"><img src="assets/images/svg/interests/interest-wildlife.svg" alt="" /></span>
+          <h3>Wildlife</h3>
           <p>Explore species, habitats and nature observations connected to each stretch of river.</p>
+          <ul class="atlas-card__layers" aria-label="Layers on the map">
+            <li>Fish</li><li>Fish Passes</li><li>Wetland</li><li>Species</li>
+          </ul>
+          <figure class="atlas-card__screen">
+            <img src="assets/images/screens/wildlife-common-kingfisher.webp" width="461" height="921" loading="lazy" alt="The EveryRiver panel for the Common Kingfisher, showing where it has been seen: 1,971 sightings, 1,685 in England, 193 in Scotland and 93 in Wales, and the rivers where it is most seen, led by the River Thames and the River Frome." />
+            <figcaption>Common Kingfisher, where it has been seen</figcaption>
+          </figure>
         </article>
-        <article class="atlas-card atlas-card--heritage" data-media-slot="screenshot-history">
-          <span class="atlas-card__number">03</span>
-          <h3>History and culture</h3>
+        <article class="atlas-card atlas-card--heritage">
+          <span class="atlas-card__icon"><img src="assets/images/svg/interests/interest-history.svg" alt="" /></span>
+          <h3>History</h3>
           <p>Understand how our lives, buildings, events and language have been shaped by the water.</p>
+          <ul class="atlas-card__layers" aria-label="Layers on the map">
+            <li>Historic Buildings</li><li>Watermills</li><li>Historic sites</li><li>Fords</li>
+          </ul>
+          <figure class="atlas-card__screen">
+            <img src="assets/images/screens/history-richmond-bridge.webp" width="461" height="921" loading="lazy" alt="The EveryRiver panel for Richmond Bridge: an evening photo of the stone arches lit over the River Thames, with geese on the water." />
+            <figcaption>Richmond Bridge, River Thames</figcaption>
+          </figure>
         </article>
-        <article class="atlas-card atlas-card--visiting" data-media-slot="screenshot-access">
-          <span class="atlas-card__number">04</span>
-          <h3>Access and enjoyment</h3>
-          <p>Give and receive guidance on walking, paddling, boating, swimming, fishing and just idly spending time by the river.</p>
-        </article>
-        <article class="atlas-card atlas-card--water" data-media-slot="screenshot-live">
-          <span class="atlas-card__number">05</span>
-          <h3>Live conditions</h3>
-          <p>See river levels, flows, rainfall, tides, weather, water quality and other changing conditions.</p>
-        </article>
-        <article class="atlas-card atlas-card--boating" data-media-slot="screenshot-sources">
-          <span class="atlas-card__number">06</span>
-          <h3>Sources and shared knowledge</h3>
-          <p>Learn more about rivers and canals and give others the benefit of your knowledge. Add your favourite books, explain how things work, verify, update, challenge and edit, for the benefit of future generations.</p>
+        <article class="atlas-card atlas-card--water">
+          <span class="atlas-card__icon"><img src="assets/images/svg/interests/interest-water.svg" alt="" /></span>
+          <h3>Water and landscape</h3>
+          <p>Follow the river from its source in the hills to the sea, and see its levels, flows, rainfall, tides and water quality as they change.</p>
+          <ul class="atlas-card__layers" aria-label="Layers on the map">
+            <li>River Flow Rates</li><li>River Sources</li><li>Pollutant Discharges</li><li>Waterfalls</li>
+          </ul>
+          <figure class="atlas-card__screen">
+            <img src="assets/images/screens/water-river-eden.webp" width="461" height="921" loading="lazy" alt="The EveryRiver panel for the River Eden in Cumbria: its height profile, falling 342 metres in 91 miles from its source to the sea." />
+            <figcaption>River Eden, Cumbria</figcaption>
+          </figure>
         </article>
       </div>
+      <p class="container atlas-note">Screens from the EveryRiver beta, 18 November 2026. Photos in them by riparian001 (CC BY 4.0) and Cacolantern (public domain). Map data © OpenStreetMap contributors.</p>
     </section>
 
     <section class="section stats section-dark" aria-labelledby="scale-title">
       <div class="container">
         <div class="stats__intro"><h2 id="scale-title">Already taking shape.</h2></div>
         <dl class="stats__grid">
-          <div><dt>1 million+</dt><dd>active atlas features</dd></div>
-          <div><dt>33,578</dt><dd>rivers</dd></div>
-          <div><dt>408</dt><dd>canals</dd></div>
-          <div><dt>123</dt><dd>active datasets</dd></div>
+          <div><dt>1.5 million+</dt><dd>active atlas features</dd></div>
+          <div><dt>31,730</dt><dd>rivers</dd></div>
+          <div><dt>467</dt><dd>canals</dd></div>
+          <div><dt>174</dt><dd>active datasets</dd></div>
         </dl>
         <div class="providers">
           <p><strong>Including data provided or published by:</strong></p>
           <ul>
             <li>Anglian Water</li>
             <li>British Geological Survey</li>
+            <li>Cadw</li>
             <li>Canal &amp; River Trust</li>
             <li>Dwr Cymru Welsh Water</li>
             <li>Environment Agency</li>
@@ -188,21 +232,27 @@
             <li>National Historic Ships UK</li>
             <li>Natural England</li>
             <li>Natural Resources Wales</li>
+            <li>NatureScot</li>
             <li>Northumbrian Water</li>
+            <li>OpenStreetMap Foundation</li>
             <li>Ordnance Survey</li>
             <li>Scottish Environment Protection Agency</li>
+            <li>Scottish Government</li>
             <li>Scottish Water</li>
             <li>Severn Trent Water</li>
             <li>South West Water</li>
             <li>Southern Water</li>
             <li>Thames Water</li>
+            <li>The Rivers Trust</li>
+            <li>UK Centre for Ecology &amp; Hydrology</li>
             <li>UK Hydrographic Office</li>
             <li>United Utilities</li>
+            <li>Welsh Government</li>
             <li>Wessex Water</li>
             <li>Yorkshire Water</li>
           </ul>
         </div>
-        <p class="stats__note">Figures checked July 2026.</p>
+        <p class="stats__note">Figures checked 18 November 2026.</p>
       </div>
     </section>
 
@@ -215,7 +265,7 @@
         </div>
         <div class="source-panel">
           <p>Information from <strong>Wikipedia</strong>, <strong>Wiktionary</strong> and <strong>iNaturalist</strong> is included within the atlas and guide.</p>
-          <p>Sources and provenance remain visible, so knowledge can be checked, understood and improved.</p>
+          <p>Sources and provenance remain visible, so knowledge can be checked, understood and improved. Add your favourite books, explain how things work, and verify, update, challenge and edit, for the benefit of future generations.</p>
         </div>
       </div>
     </section>
@@ -240,7 +290,7 @@
         </ul>
 
         <div class="community__action">
-          <p>Sign up for updates and information about how to get involved.</p>
+          <p>The first 40 people to use EveryRiver will help shape it. Sign up to the newsletter to be one of them.</p>
           <a class="button" href="follow.html">Get updates</a>
         </div>
       </div>
@@ -269,25 +319,26 @@
       <div class="container roadmap__grid">
         <div>
           <p class="eyebrow eyebrow--dark">Roadmap</p>
-          <h2 id="roadmap-title">Testing now. Public later this year.</h2>
-          <p class="section-lede">Private testing is invitation only and places are limited. The newsletter is the best way to follow progress and hear how to get involved.</p>
+          <h2 id="roadmap-title">The first 40, then everyone.</h2>
+          <p class="section-lede">EveryRiver opens first to 40 people who will help add to the atlas and tell us what they think. It opens to everyone after that. No date is set, and the newsletter is where we will say first.</p>
         </div>
         <ol class="timeline">
-          <li><span>Summer 2026</span><strong>Invitation-only testing</strong><p>Testing the atlas and guide with a small group.</p></li>
-          <li><span>Autumn 2026</span><strong>Refine and prepare</strong><p>Improving the experience, knowledge and contribution tools.</p></li>
-          <li><span>Later in 2026</span><strong>Public launch</strong><p>Opening EveryRiver more widely.</p></li>
+          <li><span>First</span><strong>The first 40</strong><p>Forty people use EveryRiver, add what they know and tell us what works and what does not.</p></li>
+          <li><span>Then</span><strong>Refine and prepare</strong><p>We improve the experience, knowledge and contribution tools with what they tell us.</p></li>
+          <li><span>After that</span><strong>Open to everyone</strong><p>No date is set. Newsletter subscribers hear first.</p></li>
         </ol>
       </div>
     </section>
 
-    <section class="section newsletter section-dark" aria-labelledby="newsletter-title">
+    <section class="section newsletter section-dark" id="first-40" aria-labelledby="newsletter-title">
       <div class="container newsletter__inner">
         <div>
-          <p class="eyebrow">Follow the journey</p>
-          <h2 id="newsletter-title">Get EveryRiver updates.</h2>
-          <p>Development news, launch updates and information about how you can help build the atlas and guide.</p>
+          <p class="eyebrow">The first 40</p>
+          <h2 id="newsletter-title">Be one of the first 40 to use EveryRiver.</h2>
+          <p>If you are prepared to help add to the atlas and to tell us what you think, sign up to the newsletter. That is how we will contact you.</p>
+          <p class="newsletter__small">Places are for adults aged 18 or over.</p>
         </div>
-        <a class="button" href="follow.html">Get updates</a>
+        <a class="button" href="follow.html">Sign up to the newsletter</a>
       </div>
     </section>
   </main>
