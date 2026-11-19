@@ -158,7 +158,7 @@ h3 { margin-bottom: 12px; font-size: clamp(1.25rem, 2vw, 1.65rem); }
 .atlas-card__layers { margin: 0 0 26px; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; list-style: none; }
 .atlas-card__layers li { padding: 4px 11px; color: var(--navy); background: var(--card-soft); border-radius: 999px; font-size: 0.82rem; font-weight: 700; line-height: 1.4; }
 .atlas-card__screen { margin: auto 0 0; }
-.atlas-card__screen img { width: min(100%, 260px); aspect-ratio: 461 / 860; margin-inline: auto; object-fit: cover; object-position: top; background: var(--cream); border: 6px solid var(--navy); border-radius: 24px; box-shadow: var(--shadow-raised); }
+.atlas-card__screen img { width: min(100%, 260px); aspect-ratio: 452 / 860; margin-inline: auto; object-fit: cover; object-position: top; background: var(--cream); border: 6px solid var(--navy); border-radius: 24px; box-shadow: var(--shadow-raised); }
 .atlas-card__screen figcaption { margin-top: 12px; color: var(--muted); font-size: 0.86rem; text-align: center; }
 .atlas-note { margin-top: 26px; margin-bottom: 0; color: var(--muted); font-size: 0.86rem; }
 .atlas-card--sport { --card-accent: var(--sport); --card-soft: var(--sport-soft); }
