@@ -19,7 +19,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" href="assets/images/raster/boat_button.png" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&display=swap" />
-  <link rel="stylesheet" href="assets/css/site.css?v=20261119-1" />
+  <link rel="stylesheet" href="assets/css/site.css?v=20261120-3" />
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -69,13 +69,17 @@
       </div>
     </section>
 
-    <!-- Demonstration film, embedded through YouTube's privacy-enhanced domain. -->
-    <section class="section section-film" id="film" data-media-slot="demonstration-video" aria-labelledby="film-title">
+    <!-- Introduction film. A poster until pressed; then YouTube's privacy-enhanced player. -->
+    <section class="section section-film" id="film" data-media-slot="introduction-film" aria-labelledby="film-title">
       <div class="container">
         <p class="eyebrow eyebrow--dark">See EveryRiver in action</p>
         <h2 id="film-title">An atlas and guide to rivers and canals.</h2>
         <div class="video-shell">
-          <iframe src="https://www.youtube-nocookie.com/embed/bswgtiMFQeA?rel=0" title="EveryRiver – An Atlas and Guide to rivers and canals" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          <a class="video-poster" style="--play-x: 72%; --play-y: 62%" href="https://www.youtube.com/watch?v=bswgtiMFQeA" data-youtube-id="bswgtiMFQeA" data-youtube-title="EveryRiver – An Atlas and Guide to rivers and canals" aria-label="Play the film: EveryRiver – An Atlas and Guide to rivers and canals, under 2 minutes">
+            <img src="assets/images/raster/film-intro-poster.webp" width="1280" height="720" alt="" />
+            <span class="video-poster__play" aria-hidden="true"></span>
+            <span class="video-poster__length" aria-hidden="true">1:51</span>
+          </a>
         </div>
         <p class="media-caption">EveryRiver – An Atlas and Guide to rivers and canals. Film by EveryRiver. <a href="https://www.youtube.com/watch?v=bswgtiMFQeA" rel="noopener">Watch on YouTube</a></p>
       </div>
@@ -202,6 +206,24 @@
         </article>
       </div>
       <p class="container atlas-note">Screens from the EveryRiver beta, 18 November 2026. Photos in them by riparian001 (CC BY 4.0) and Cacolantern (public domain). Map data © OpenStreetMap contributors.</p>
+    </section>
+
+    <!-- Demonstration film. A poster until pressed; then YouTube's privacy-enhanced player. -->
+    <section class="section section-film" id="demo" data-media-slot="demonstration-video" aria-labelledby="demo-title">
+      <div class="container">
+        <p class="eyebrow eyebrow--dark">See it working</p>
+        <h2 id="demo-title">Watch the demo.</h2>
+        <p class="section-lede">Twenty-four minutes with the EveryRiver beta, showing the atlas and guide in use.</p>
+        <div class="video-shell">
+          <a class="video-poster" style="--play-x: 59%; --play-y: 69%" href="https://www.youtube.com/watch?v=My-8iGAPJmw" data-youtube-id="My-8iGAPJmw" data-youtube-title="EveryRiver atlas and guide demo" aria-label="Play the EveryRiver atlas and guide demo, 24 minutes">
+            <img src="assets/images/raster/film-demo-poster.webp" width="1280" height="720" loading="lazy" alt="" />
+            <span class="video-poster__play" aria-hidden="true"></span>
+            <span class="video-poster__length" aria-hidden="true">24:01</span>
+          </a>
+        </div>
+        <p class="media-caption">EveryRiver atlas and guide demo, 24 minutes. Film by EveryRiver. <a href="https://www.youtube.com/watch?v=My-8iGAPJmw" rel="noopener">Watch on YouTube</a></p>
+        <p class="film-action"><a class="button" href="#first-40">Be one of the first 40</a></p>
+      </div>
     </section>
 
     <section class="section stats section-dark" aria-labelledby="scale-title">
@@ -359,7 +381,26 @@
       document.addEventListener('visibilitychange', () => {
         if (!document.hidden) startVideo();
       });
-    })();  </script>
+    })();
+
+    // Films show a poster until pressed, so the page only connects to YouTube for a visitor who plays one.
+    // Without this script each poster is a plain link to the film on YouTube.
+    (() => {
+      document.querySelectorAll('.video-poster[data-youtube-id]').forEach((poster) => {
+        poster.addEventListener('click', (event) => {
+          if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+          event.preventDefault();
+          const frame = document.createElement('iframe');
+          frame.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(poster.dataset.youtubeId) + '?rel=0&autoplay=1';
+          frame.title = poster.dataset.youtubeTitle || 'EveryRiver film';
+          frame.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+          frame.referrerPolicy = 'strict-origin-when-cross-origin';
+          poster.replaceWith(frame);
+          frame.focus();
+        });
+      });
+    })();
+  </script>
 
   <footer class="site-footer">
     <div class="container site-footer__inner">

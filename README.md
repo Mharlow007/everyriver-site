@@ -21,10 +21,11 @@ Shared public-site styles are in `assets/css/site.css`.
 
 ## Product media
 
-- `demonstration-video`: 16:9 film, poster, caption and transcript
+- `introduction-film`: the 1:51 film "EveryRiver – An Atlas and Guide to rivers and canals" (YouTube `bswgtiMFQeA`), under the opening section. Poster `assets/images/raster/film-intro-poster.webp`, the film's own YouTube picture.
+- `demonstration-video`: the 24-minute "EveryRiver atlas and guide DEMO" (YouTube `My-8iGAPJmw`), after the six beta screens and before the first-40 offer. Poster `assets/images/raster/film-demo-poster.webp`, the film's own YouTube picture.
 - `assets/images/screens/`: one real beta screen for each of the six interests the beta asks a first visitor about (Walks and days out, Boating, Watersports, Wildlife, History, Water and landscape). Captured from the beta's feature panel on 18 November 2026, 452 × 860 WebP, cropped to the panel itself.
 - `assets/images/svg/interests/`: the beta's own six interest icons, copied from `rivers/static/rivers/SVG/` in the website repository.
 
 Do not reveal an empty slot. Add product media only after its alternative text, caption, credit and permission details are complete. A screen may show only photos that are public domain, CC0 or EveryRiver's own; iNaturalist photos are often non-commercial and are not used. Layer names on the page are exactly the beta layer menu's names.
 
-For YouTube, use the privacy-enhanced `youtube-nocookie.com` embed. The demonstration film is embedded directly on the page so visitors see the player itself; the privacy notice's "Embedded video" section covers it.
+For YouTube, use the privacy-enhanced `youtube-nocookie.com` embed, and only once a visitor presses play. Each film is a `.video-poster` link to the film on YouTube carrying `data-youtube-id`; the home page script swaps it for the player on a click, so a visitor who never plays a film never connects to YouTube, and without the script the link still works. The privacy notice's "Embedded video" section says exactly this; change it if that ever changes.

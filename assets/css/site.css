@@ -267,6 +267,15 @@ h3 { margin-bottom: 12px; font-size: clamp(1.25rem, 2vw, 1.65rem); }
 .video-shell { width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: var(--navy-deep); border-radius: var(--radius-lg); box-shadow: var(--shadow-raised); }
 .video-shell iframe, .video-shell video { width: 100%; height: 100%; border: 0; }
 .media-caption { margin-top: 12px; color: var(--muted); font-size: 0.9rem; }
+.video-poster { position: relative; display: block; width: 100%; height: 100%; color: var(--white); }
+.video-poster img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.video-poster__play { position: absolute; top: var(--play-y, 50%); left: var(--play-x, 50%); width: clamp(46px, 8vw, 92px); aspect-ratio: 1; transform: translate(-50%, -50%); background: rgba(15, 30, 52, 0.82); border: 3px solid var(--white); border-radius: 50%; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35); transition: background 0.15s ease, transform 0.15s ease; }
+.video-poster__play::after { content: ""; position: absolute; top: 50%; left: 54%; transform: translate(-50%, -50%); border-style: solid; border-width: 0.6em 0 0.6em 1em; border-color: transparent transparent transparent var(--white); font-size: clamp(13px, 2.2vw, 26px); }
+.video-poster:hover .video-poster__play { background: var(--teal); transform: translate(-50%, -50%) scale(1.06); }
+.video-poster:focus-visible { outline: 4px solid #8ad1ff; outline-offset: -4px; }
+.video-poster__length { position: absolute; right: 14px; bottom: 14px; padding: 3px 9px; background: rgba(15, 30, 52, 0.85); border-radius: var(--radius-sm); font-size: 0.86rem; font-weight: 700; }
+.section-film .section-lede { margin-bottom: 28px; }
+.film-action { margin: 28px 0 0; }
 
 @media (max-width: 900px) {
   .site-header__inner { padding-block: 16px; align-items: flex-start; }
@@ -296,6 +305,8 @@ h3 { margin-bottom: 12px; font-size: clamp(1.25rem, 2vw, 1.65rem); }
   .cycle-diagram__arrows path { stroke-width: 4; }
   .love-banner { min-height: 440px; }
   .atlas-grid, .principles__grid { grid-template-columns: 1fr; }
+  .video-poster__play { border-width: 2px; }
+  .video-poster__length { right: 8px; bottom: 8px; padding: 2px 6px; font-size: 0.72rem; }
   .stats__grid { grid-template-columns: 1fr; }
   .stats__grid div, .stats__grid div:first-child { padding: 24px 0; border-left: 0; border-top: 1px solid rgba(255, 255, 255, 0.2); }
   .stats__grid div:first-child { border-top: 0; }
